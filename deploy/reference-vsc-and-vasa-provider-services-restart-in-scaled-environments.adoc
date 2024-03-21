@@ -1,0 +1,25 @@
+---
+permalink: deploy/reference-vsc-and-vasa-provider-services-restart-in-scaled-environments.html 
+sidebar: sidebar 
+keywords: vsc, and vasa, provider, services, restart, highly, scaled, environments, 
+summary: Os serviços VSC e VASA Provider reiniciam em ambientes altamente dimensionados 
+---
+= Os serviços VSC e VASA Provider reiniciam em ambientes altamente dimensionados
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+
+
+== Problema
+
+O dispositivo virtual para VSC, VSA Provider e SRA pode não funcionar de forma otimizada em um ambiente altamente dimensionado, e você pode notar problemas como VSC e serviços do provedor VASA reiniciando com frequência.
+
+
+
+== Ação corretiva
+
+Modifique os requisitos de memória RAM e heap para o dispositivo virtual para VSC, provedor VASA e SRA.
+
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Virtual_Storage_Console_for_VMware_vSphere/tune_memory_settings_of_VM_VSC%2C_VASA_Provider%2C_and_SRA_for_scale_and_performance[]

@@ -1,0 +1,31 @@
+---
+permalink: deploy/reference-srm-does-not-work-after-sra-installation.html 
+sidebar: sidebar 
+keywords: netapp, storage, replication, adapter, ontap, appear, site, recovery, manager, appliance, 
+summary: O adaptador de replicação de armazenamento NetApp para ONTAP não aparece no dispositivo Gerenciador de recuperação de local 
+---
+= O adaptador de replicação de armazenamento NetApp para ONTAP não aparece no dispositivo Gerenciador de recuperação de local
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+
+
+== Problema
+
+O adaptador de replicação de armazenamento (SRA) não aparece na interface do dispositivo do vCenter Site Recovery Manager (SRM) depois de carregar e configurar o SRA.
+
+
+
+== Causa
+
+Não há nenhum erro exibido quando credenciais SRA incorretas (nome de usuário ou senha) são usadas para configurar o SRA usando o seguinte comando.
+
+`perl command.pl -I <sra-server-ip> <vp_username> <vp_passwd>`
+
+
+
+== Ação corretiva
+
+Atualize os detalhes de configuração do SRA usando o seguinte comando: `perl command.pl -U <sra-server-ip> <vp_username> <vp_passwd>`

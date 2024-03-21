@@ -1,0 +1,26 @@
+---
+permalink: deploy/concept-vmware-fault-tolerance-for-vcenter-server.html 
+sidebar: sidebar 
+keywords: vsc, vmware, vsphere, fault, tolerance, 
+summary: 'O recurso VMware vSphere Fault Tolerance (FT) fornece (HA) em um nível mais alto e permite proteger máquinas virtuais sem perda de dados ou conexões. Você deve ativar ou desativar o vSphere FT para o dispositivo virtual para VSC, provedor VASA e SRA a partir do vCenter Server.' 
+---
+= Tolerância de falhas do VMware vSphere
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O recurso VMware vSphere Fault Tolerance (FT) fornece (HA) em um nível mais alto e permite proteger máquinas virtuais sem perda de dados ou conexões. Você deve ativar ou desativar o vSphere FT para o dispositivo virtual para VSC, provedor VASA e SRA a partir do vCenter Server.
+
+Garanta que sua licença vSphere ofereça suporte ao FT com o número de vCPUs necessárias para o dispositivo virtual em seu ambiente (pelo menos 2 vCPUs; 4 vCPUs para ambientes de grande escala).
+
+O vSphere FT permite que as máquinas virtuais operem continuamente, mesmo durante falhas de servidor. Quando o vSphere FT está habilitado em uma máquina virtual, uma cópia da máquina virtual principal é criada automaticamente em outro host (a máquina virtual secundária) selecionado pelo DRS (Distributed Resource Scheduler). Se o DRS não estiver habilitado, o host de destino será selecionado entre os hosts disponíveis. O vSphere FT opera a máquina virtual principal e a máquina virtual secundária no modo de lockstep, com cada um espelhando o estado de execução da máquina virtual primária para a máquina virtual secundária.
+
+Quando há uma falha de hardware que faz com que a máquina virtual primária falhe, a máquina virtual secundária imediatamente pega onde a máquina virtual principal parou. A máquina virtual secundária continua a funcionar sem perda de conexões de rede, transações ou dados.
+
+Seu sistema deve atender aos requisitos de CPU, requisitos de limite de máquina virtual e requisitos de licenciamento para configurar o vSphere FT para sua instância do vCenter Server.
+
+O procedimento para configurar HA depende da versão do vCenter Server. Por exemplo, você pode usar o link de referência a seguir e selecionar a versão do vCenter Server necessária para exibir as etapas para configurar o HA.
+
+https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.avail.doc/GUID-57929CF0-DA9B-407A-BF2E-E7B72708D825.html["Documentação do VMware vSphere: Requisitos, limites e licenciamento de tolerância a falhas"^]

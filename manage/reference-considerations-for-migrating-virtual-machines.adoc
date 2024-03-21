@@ -1,0 +1,59 @@
+---
+permalink: manage/reference-considerations-for-migrating-virtual-machines.html 
+sidebar: sidebar 
+keywords: considerations, for, migrating, or, cloning, virtual, machines, 
+summary: Você deve estar ciente de algumas das considerações ao migrar máquinas virtuais existentes em seu datacenter. 
+---
+= Considerações para migração ou clonagem de máquinas virtuais
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você deve estar ciente de algumas das considerações ao migrar máquinas virtuais existentes em seu datacenter.
+
+
+
+== Migrar máquinas virtuais protegidas
+
+Você pode migrar as máquinas virtuais protegidas para:
+
+* O mesmo datastore vVols em um host ESXi diferente
+* Armazenamento de dados vVols compatível diferente no mesmo host ESXi
+* Armazenamento de dados vVols compatível diferente em um host ESXi diferente
+
+
+Se a máquina virtual for migrada para FlexVol volume diferente, o respetivo arquivo de metadados também será atualizado com as informações da máquina virtual. Se uma máquina virtual for migrada para um host ESXi diferente, mas o mesmo armazenamento, o metadafile FlexVol volume subjacente não será modificado.
+
+
+
+== Máquinas virtuais protegidas contra clones
+
+Você pode clonar máquinas virtuais protegidas para o seguinte:
+
+* Mesmo contêiner do mesmo FlexVol volume usando o grupo de replicação
++
+O arquivo de metadados do mesmo FlexVol volume é atualizado com os detalhes da máquina virtual clonada.
+
+* Mesmo contêiner de um FlexVol volume diferente usando o grupo de replicação
++
+O FlexVol volume onde a máquina virtual clonada é colocada, o arquivo de metadados é atualizado com os detalhes da máquina virtual clonada.
+
+* Datastore diferente de contêiner ou vVols
++
+O FlexVol volume onde a máquina virtual clonada é colocada, o arquivo de metadados recebe detalhes atualizados da máquina virtual.
+
+
+
+Atualmente, a VMware não oferece suporte à máquina virtual clonada a um modelo de VM.
+
+É suportado clone-of-Clone de uma máquina virtual protegida.
+
+
+
+== Instantâneos da máquina virtual
+
+Atualmente, apenas instantâneos de máquina virtual sem memória são suportados. Se a máquina virtual tiver Snapshot com memória, a máquina virtual não será considerada para proteção.
+
+Você também não pode proteger a máquina virtual desprotegida que tenha Snapshot de memória. Para esta versão, espera-se que você exclua o instantâneo da memória antes de ativar a proteção para a máquina virtual.

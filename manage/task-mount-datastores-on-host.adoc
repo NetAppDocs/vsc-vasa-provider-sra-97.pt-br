@@ -1,0 +1,28 @@
+---
+permalink: manage/task-mount-datastores-on-host.html 
+sidebar: sidebar 
+keywords: mounting, datastore, on, additional, hosts, 
+summary: A montagem de um datastore fornece acesso ao storage a hosts adicionais. Você pode montar o datastore nos hosts adicionais depois de adicionar os hosts ao seu ambiente VMware. 
+---
+= Monte o datastore em hosts adicionais
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+A montagem de um datastore fornece acesso ao storage a hosts adicionais. Você pode montar o datastore nos hosts adicionais depois de adicionar os hosts ao seu ambiente VMware.
+
+.Antes de começar
+Você deve garantir que os detalhes da sub-rede de todas as redes às quais o ESXi hospedado está conetado sejam inseridos no `Kaminoprefs.xml`.
+
+Consulte habilitando a montagem do datastore em diferentes sub-redes seção no _VSC 9,6 Deployment and Setup Guide_.
+
+.Passos
+. Na página vSphere Client *Home*, clique em *hosts and clusters*.
+. No painel de navegação, selecione o centro de dados que contém o anfitrião.
+. Repita a Etapa 2 para quaisquer hosts adicionais.
+. Clique com o botão direito do Mouse no host e selecione menu:NetApp VSC[Mount datastores].
+. Selecione os datastores que você deseja montar e clique em *OK*.
+

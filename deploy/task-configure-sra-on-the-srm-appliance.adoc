@@ -1,0 +1,31 @@
+---
+permalink: deploy/task-configure-sra-on-srm-appliance.html 
+sidebar: sidebar 
+keywords: configuring, sra, srm, appliance, 
+summary: 'Depois de implementar o dispositivo SRM, deve configurar o SRA no dispositivo SRM. A configuração bem-sucedida do SRA permite que o SRM Appliance se comunique com o SRA para gerenciamento de recuperação de desastres. Deve guardar o dispositivo virtual para credenciais VSC, Fornecedor VASA e SRA (endereço IP e palavra-passe de administrador) no dispositivo SRM para permitir a comunicação entre o dispositivo SRM e o SRA.' 
+---
+= Configure o SRA no dispositivo SRM
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Depois de implementar o dispositivo SRM, deve configurar o SRA no dispositivo SRM. A configuração bem-sucedida do SRA permite que o SRM Appliance se comunique com o SRA para gerenciamento de recuperação de desastres. Deve guardar o dispositivo virtual para credenciais VSC, Fornecedor VASA e SRA (endereço IP e palavra-passe de administrador) no dispositivo SRM para permitir a comunicação entre o dispositivo SRM e o SRA.
+
+.Antes de começar
+Você deve carregar o `tar.gz` arquivo para o SRM Appliance.
+
+.Sobre esta tarefa
+A configuração do SRA no dispositivo SRM armazena as credenciais SRA no dispositivo SRM.
+
+.Passos
+. Inicie sessão utilizando a conta de administrador no dispositivo SRM utilizando o putty.
+. Mude para o usuário root usando o comando: `su root`
+. Na localização do log, digite o comando para obter o ID do docker usado pelo SRA `docker ps -l`
+. Para fazer login no ID do contentor, digite o comando `docker exec -it -u srm <container id> sh`
+. Configure o SRM com o dispositivo virtual para o VSC, o fornecedor VASA e o endereço IP e a palavra-passe SRA utilizando o comando: `perl command.pl -I <va-IP> administrator <va-password>`
++
+Uma mensagem de sucesso confirmando que as credenciais de armazenamento são armazenadas é exibida. O SRA pode se comunicar com o servidor SRA usando o endereço IP, porta e credenciais fornecidos.
+
+

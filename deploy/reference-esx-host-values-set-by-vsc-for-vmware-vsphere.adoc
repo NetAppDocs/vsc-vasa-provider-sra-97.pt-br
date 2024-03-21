@@ -1,0 +1,124 @@
+---
+permalink: deploy/reference-esx-host-values-set-by-vsc-for-vmware-vsphere.html 
+sidebar: sidebar 
+keywords: esxi, host, values, set, using, virtual, storage, console, vmware, vsphere, 
+summary: 'Você pode definir tempos limite e outros valores nos hosts ESXi usando o Virtual Storage Console para VMware vSphere para garantir o melhor desempenho e o failover bem-sucedido. Os valores que o Virtual Storage Console (VSC) define são baseados em testes internos.' 
+---
+= Valores de host ESXi definidos usando o Virtual Storage Console para VMware vSphere
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode definir tempos limite e outros valores nos hosts ESXi usando o Virtual Storage Console para VMware vSphere para garantir o melhor desempenho e o failover bem-sucedido. Os valores que o Virtual Storage Console (VSC) define são baseados em testes internos.
+
+Você pode definir os seguintes valores em um host ESXi:
+
+
+
+== Configuração avançada do ESXi
+
+* *VMFS3.HardwareAcceleratedLocking*
++
+Você deve definir esse valor como 1.
+
+* *VMFS3.EnableBlockDelete*
++
+Você deve definir esse valor como 0.
+
+
+
+
+
+== Definições NFS
+
+* *Net.TcpipHeapSize*
++
+Se você estiver usando o vSphere 6,0 ou posterior, defina esse valor como 32.
+
+* *Net.TcpipHeapMax*
++
+Se você estiver usando o vSphere 6,0 ou posterior, defina esse valor como 1536.
+
+* *NFS.MaxVolumes*
++
+Se você estiver usando o vSphere 6,0 ou posterior, defina esse valor como 256.
+
+* *NFS41.MaxVolumes*
++
+Se você estiver usando o vSphere 6,0 ou posterior, defina esse valor como 256.
+
+* *NFS.MaxQueueDepth*
++
+Se você estiver usando o vSphere 6,0 ou versão posterior do host ESXi, defina esse valor como 128 ou superior para evitar gargalos de enfileiramento.
+
++
+Para versões do vSphere anteriores a 6,0, você deve definir esse valor como 64.
+
+* *NFS.HeartbeatMaxFailures*
++
+Você deve definir esse valor como 10 para todas as configurações NFS.
+
+* *Frequência NFS.HeartbeatFrequency*
++
+Você deve definir esse valor como 12 para todas as configurações NFS.
+
+* *NFS.HeartbeatTimeout*
++
+Você deve definir esse valor como 5 para todas as configurações NFS.
+
+
+
+
+
+== Configurações FC/FCoE
+
+* *Política de seleção de caminho*
++
+Você deve definir esse valor como "'RR'" (round robin) quando os caminhos FC com ALUA são usados.
+
++
+Você deve definir esse valor como "FIXO" para todas as outras configurações.
+
++
+Definir esse valor como ""RR"" ajuda a fornecer balanceamento de carga em todos os caminhos ativos/otimizados. O valor FIXO é usado para configurações mais antigas e não-ALUA e ajuda a impedir e/S de proxy
+
+* *Disk.QFullSampleSize*
++
+Você deve definir esse valor como 32 para todas as configurações. Definir este valor ajuda a evitar erros de e/S.
+
+* *Disk.QFullThreshold*
++
+Você deve definir esse valor como 8 para todas as configurações. Definir este valor ajuda a evitar erros de e/S.
+
+* *Tempos limite de Emulex FC HBA*
++
+Use o valor padrão.
+
+* *Tempos limite de tempo do QLogic FC HBA*
++
+Use o valor padrão.
+
+
+
+
+
+== Definições iSCSI
+
+* *Política de seleção de caminho*
++
+Você deve definir esse valor como ""RR"" para todos os caminhos iSCSI.
+
++
+Definir esse valor como ""RR"" ajuda a fornecer balanceamento de carga em todos os caminhos ativos/otimizados.
+
+* *Disk.QFullSampleSize*
++
+Você deve definir esse valor como 32 para todas as configurações. Definir este valor ajuda a evitar erros de e/S.
+
+* *Disk.QFullThreshold*
++
+Você deve definir esse valor como 8 para todas as configurações. Definir este valor ajuda a evitar erros de e/S.
+
+

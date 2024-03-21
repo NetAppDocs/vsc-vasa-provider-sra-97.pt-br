@@ -1,0 +1,61 @@
+---
+permalink: deploy/concept-installation-workflow-for-existing-users-of-vsc.html 
+sidebar: sidebar 
+keywords: deployment, workflow, existing, users, vsc, vasa, provider, sra, 
+summary: As versões 9,7 do dispositivo virtual para VSC, VSA Provider e SRA suportam a atualização direta para a versão mais recente. 
+---
+= Fluxo de trabalho de implantação para usuários existentes do VSC, provedor VASA e SRA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+As versões 9,7 do dispositivo virtual para VSC, VSA Provider e SRA suportam a atualização direta para a versão mais recente.
+
+As versões anteriores de aplicativos individuais, como VSC, VASA Provider e SRA, usam um processo de atualização diferente. Se você tiver o VSC ou o provedor VASA ou o SRA instalados em sua configuração, então você deve executar as seguintes operações:
+
+. Implante a versão mais recente do dispositivo virtual para VSC, Fornecedor VASA e SRA.
+. Migrar quaisquer dados de configuração existentes.
++
+Os dados de configuração incluem credenciais do sistema de armazenamento, bem como preferências encontradas nos `kaminoprefs.xml` arquivos e. `vscPreferences.xml`
+
+
+
+link:reference-configure-the-vsc-preferences-files.html["Configure os ficheiros de preferências do VSC"^]
+
+Em muitos casos, talvez você não precise migrar dados de configuração. No entanto, se você personalizou os arquivos de preferências anteriormente, talvez queira analisá-los e fazer alterações semelhantes ao dispositivo virtual recém-implantado. Você pode executar um dos seguintes procedimentos:
+
+* Use https://mysupport.netapp.com/tools/index.html["Utilitário de importação para SnapCenter e console de armazenamento virtual"^] para migrar as credenciais do sistema de storage do VSC 6.X e SRA 4.X para a nova implantação.
+* Adicione os sistemas de storage ao dispositivo virtual recém-implantado e especifique as credenciais à medida que você as adiciona.
+
+
+Se estiver a atualizar a partir do fornecedor VASA 6.X, deve anular o registo do fornecedor VASA antes de atualizar. Consulte a documentação da versão atual para obter mais detalhes.
+
+Se você também estiver atualizando do SRA 4,0 ou anterior:
+
+* Se você estiver usando SRA 4.0P1, então você deve primeiro atualizar para SRA9,6 e só então você pode executar uma atualização no local do SRA 9,6 para a versão mais recente.
++
+link:task-upgrade-to-the-9-7-1-virtual-appliance-for-vsc-vasa-provider-and-sra.html["Atualize para o dispositivo virtual 9.7.1 para VSC, VSA Provider e SRA"^]
+
+* Se você estiver usando o SRA 2,1 ou 3,0, primeiro você deve anotar os detalhes de configuração do site existente.
++
+_Guia de instalação e configuração do adaptador de replicação de armazenamento 4,0 para ONTAP_ tem as instruções detalhadas na seção "Visão geral de atualização". Essas versões do SRA também usam o provedor VASA, então você deve cancelar o Registro do provedor VASA e, em seguida, implantar a versão mais recente do dispositivo virtual para VSC, provedor VASA e SRA. A versão anterior do servidor (`.ova`) pode ser removida quando a atualização estiver concluída.
+
+
+
+Para qualquer atualização do SRA, o software SRA (o adaptador no servidor Site Recovery Manager, instalado pelo `.msi` arquivo) deve ser removido do servidor Site Recovery Manager. Pode utilizar o painel de controlo do sistema Windows para desinstalar o software e, em seguida, instalar o software SRA mais recente no servidor SRA utilizando o `.msi` ficheiro.
+
+Se você tiver a implantação do provedor VASA, então após a atualização da configuração existente, você deve configurar o tamanho da memória para o seu dispositivo virtual para ser 12GB usando a `Edit Settings` opção. Você também deve modificar a reserva de memória virtual. A máquina virtual deve ser desligada para modificar o tamanho da memória.
+
+Uma atualização direta de qualquer versão anterior a 9,7 para 9.7P2 ou posterior não é suportada pelo dispositivo virtual para VSC, Fornecedor VASA e SRA. Primeiro, você deve atualizar sua configuração existente para a versão 9,7 do dispositivo virtual para VSC, provedor VASA e SRA antes de atualizar para qualquer versão posterior.
+
+Se você vai implantar a versão mais recente do dispositivo virtual, você deve ver o tópico "'requisitos para implantar o dispositivo virtual para VSC, provedor VASA e SRA."" o tópico "'Atualizando para a versão 9,6 do dispositivo virtual para VSC, provedor VASA e SRA'" tem informações sobre a realização de uma atualização no local.
+
+*Informações relacionadas*
+
+https://mysupport.netapp.com/tools/info/ECMLP2840096I.html?productID=62135&pcfContentID=ECMLP2840096["NetApp ToolChest: Utilitário de importação NetApp para SnapCenter e console de armazenamento virtual"^]
+
+link:concept-requirements-for-deploying-the-virtual-appliance-for-vsc-vasa-provider-and-sra.html["Requisitos para a implantação do dispositivo virtual para VSC, provedor VASA e SRA"^]
+
+link:task-upgrade-to-the-9-7-1-virtual-appliance-for-vsc-vasa-provider-and-sra.html["Atualize para o dispositivo virtual 9.7.1 para VSC, VSA Provider e SRA"^]

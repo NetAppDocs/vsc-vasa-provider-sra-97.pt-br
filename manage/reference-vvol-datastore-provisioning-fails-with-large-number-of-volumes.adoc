@@ -1,0 +1,29 @@
+---
+permalink: manage/reference-vvol-datastore-provision-fails-with-large-number-of-volumes.html 
+sidebar: sidebar 
+keywords: VVol, datastore, provisioning, fails, with, large, number, of, volumes, 
+summary: O provisionamento do armazenamento de dados VVol falha com um grande número de volumes 
+---
+= O provisionamento do armazenamento de dados VVol falha com um grande número de volumes
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+
+
+== Problema
+
+O provisionamento do armazenamento de dados VVol falha quando você tenta provisionar os armazenamentos de dados VVol com mais de seis volumes.
+
+
+
+== Causa
+
+O provisionamento do armazenamento de dados VVol falha devido aos tempos limite de soquete entre o VSC e o provedor VASA.
+
+
+
+== Ação corretiva
+
+Você deve criar o datastore VVol com menos de seis volumes ou aumentar o tamanho do datastore VVol após o provisionamento usando a opção *Expand VVol datastore*.

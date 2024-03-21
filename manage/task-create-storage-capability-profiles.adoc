@@ -1,0 +1,127 @@
+---
+permalink: manage/task-create-storage-capability-profiles.html 
+sidebar: sidebar 
+keywords: configuring, storage, capability, profiles, 
+summary: Você pode usar o VSC para criar manualmente perfis de capacidade de storage, gerar automaticamente um perfil com base nos recursos de um armazenamento de dados ou modificar um perfil para atender aos seus requisitos. 
+---
+= Configurar perfis de capacidade de armazenamento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode usar o VSC para criar manualmente perfis de capacidade de storage, gerar automaticamente um perfil com base nos recursos de um armazenamento de dados ou modificar um perfil para atender aos seus requisitos.
+
+.Antes de começar
+Você deve ter registrado sua instância do provedor VASA no Virtual Storage Console para VMware vSphere.
+
+.Sobre esta tarefa
+Depois de configurar um perfil, pode editar o perfil conforme necessário.
+
+.Passos
+. Na página Virtual Storage Console (VSC) *Home*, clique em *Perfis de capacidade de armazenamento*.
+. Crie um perfil ou edite um perfil existente, conforme necessário:
++
+[cols="1a,1a"]
+|===
+| Se você quiser... | Faça isso... 
+
+
+ a| 
+Crie um perfil
+ a| 
+Clique em *image:../media/create-icon.gif[""]*.
+
+
+
+ a| 
+Editar um perfil existente
+ a| 
+Clique no perfil que pretende modificar a partir dos perfis listados na página Perfis de capacidade de armazenamento.
+
+|===
++
+[NOTE]
+====
+Para exibir os valores associados a um perfil existente, clique no nome do perfil na página Perfil de capacidades de armazenamento. Em seguida, o provedor VASA exibe a página Resumo para esse perfil. - Você não pode modificar quaisquer perfis de capacidade de armazenamento existentes que foram criados antes do dispositivo virtual 9,6 para VSC, provedor VASA e SRA.
+
+====
+. Preencha as páginas no assistente *Create Storage Capability Profile* para configurar um perfil ou editar valores para modificar um perfil existente.
++
+A maioria dos campos neste assistente são auto-explicativos. A tabela a seguir descreve alguns dos campos para os quais você pode precisar de orientação.
+
++
+[cols="1a,1a"]
+|===
+| Campo | Explicação 
+
+
+ a| 
+Identificar vários perfis
+ a| 
+Você pode usar o campo *Description* na guia Nome e Descrição para descrever a finalidade do perfil de capacidade de armazenamento. Fornecer uma boa descrição é útil porque é uma boa prática configurar perfis diferentes com base nas aplicações que estão sendo usadas.
+
+Por exemplo, uma aplicação essencial aos negócios requer um perfil com recursos que deem suporte a uma performance mais alta, como uma plataforma AFF. Um armazenamento de dados usado para teste ou treinamento pode usar um perfil com uma plataforma FAS de performance inferior e habilitar todos os recursos de eficiência de storage e disposição em camadas para controlar custos.
+
+Se você ativou o modo "'Linked'" para seus vCenter Servers, então você deve selecionar o vCenter Server para o qual você está criando o perfil de capacidade de armazenamento.
+
+
+
+ a| 
+Plataforma
+ a| 
+Você pode selecionar seu sistema de storage para ter o tipo de plataforma AFF ou FAS. As opções nos ecrãs subsequentes são atualizadas com base na seleção do tipo de sistema de armazenamento.
+
+
+
+ a| 
+Desempenho
+ a| 
+Você pode definir políticas tradicionais de QoS para seu sistema de storage usando a guia desempenho.
+
+** Quando você seleciona *nenhum*, uma política de QoS sem limite (infinito) é aplicada a um VVol de dados.
+** Quando você seleciona *QoS Policy Group*, uma política de QoS tradicional é aplicada a uma VVol.
++
+Você pode definir o valor para *IOPS máximo* e *IOPS mínimo*, que permite usar a funcionalidade de QoS. Se você selecionar Infinite IOPS, o campo Max IOPS será desativado. Quando aplicada a um datastore tradicional, uma política de QoS com valor máximo de IOPS é criada e atribuída a um FlexVol volume. Quando usada com um datastore VVol, uma política de QoS com valores de IOPS máximo e IOPS mínimo é criada para cada VVol de dados.
+
++
+[NOTE]
+====
+*** IOPS máximo e IOPS mínimo também podem ser aplicados ao FlexVol volume para um armazenamento de dados tradicional.
+*** Você deve garantir que as métricas de desempenho também não sejam definidas separadamente em um nível de máquina virtual de storage, em um nível de agregado ou em um nível de FlexVol volume.
+
+
+====
+
+
+
+
+ a| 
+Atributos de storage
+ a| 
+Os atributos de armazenamento que você pode habilitar nesta guia dependem do tipo de armazenamento selecionado na guia personalidade.
+
+** Se você selecionar armazenamento FAS, poderá configurar a reserva de espaço (thick or thin), ativar deduplicação, compactação e criptografia.
++
+O atributo disposição em camadas é desativado porque esse atributo não é aplicável ao storage FAS.
+
+** Se você selecionar AFF Storage, poderá habilitar a criptografia e a disposição em camadas.
++
+A deduplicação e a compactação são habilitadas por padrão para o armazenamento AFF e não podem ser desativadas. A reserva de espaço é configurada como thin e não pode ser alterada para thick (thin é necessário para eficiência agregada e disposição em camadas).
+
++
+O atributo disposição em camadas permite o uso de volumes que fazem parte de um agregado habilitado para FabricPool (compatível com o fornecedor VASA para sistemas AFF com o ONTAP 9.4 e posterior). Você pode configurar uma das seguintes políticas para o atributo de disposição em camadas:
+
+** Qualquer: Permite o uso desse perfil de funcionalidades de storage com qualquer FlexVol volume, independentemente de o Fabric Pool ser usado ou não
+** Nenhum: Impede que os dados de volume sejam movidos para o nível de capacidade
+** Somente snapshot: Move blocos de dados de usuários de cópias Snapshot de volume que não estão associados ao sistema de arquivos ativo para a camada de capacidade
+** Auto: Move blocos de dados de usuários inativos nas cópias Snapshot e no sistema de arquivos ativo para a camada de capacidade
+
+
+|===
+. Reveja as suas seleções na página *Summary* e, em seguida, clique em *OK*.
++
+Depois de criar um perfil, você pode retornar à página Mapeamento do armazenamento para exibir quais perfis correspondem a quais datastores.
+
+

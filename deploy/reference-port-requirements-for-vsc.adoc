@@ -1,0 +1,60 @@
+---
+permalink: deploy/reference-port-requirements-for-vsc.html 
+sidebar: sidebar 
+keywords: port, requirements, vsc 
+summary: 'Por padrão, o (VSC) usa portas designadas para permitir a comunicação entre seus componentes, que incluem sistemas de armazenamento e o VMware vCenter Server. Se você tiver firewalls ativados, você deve garantir que os firewalls estejam definidos para permitir exceções.' 
+---
+= Requisitos de porta para VSC
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Por padrão, o (VSC) usa portas designadas para permitir a comunicação entre seus componentes, que incluem sistemas de armazenamento e o VMware vCenter Server. Se você tiver firewalls ativados, você deve garantir que os firewalls estejam definidos para permitir exceções.
+
+Para firewalls que não sejam Windows, você deve conceder manualmente acesso a portas específicas que o VSC usa. Se você não conceder acesso a essas portas, uma mensagem de erro como a seguinte será exibida.
+
+_Não é possível se comunicar com o servidor_
+
+O VSC usa as seguintes portas TCP bidirecionais padrão:
+
+[cols="1a,1a"]
+|===
+| Número da porta padrão | Descrição 
+
+
+ a| 
+9083
+ a| 
+Quando ativado, o provedor VASA e o adaptador de replicação de armazenamento (SRA) usam essa porta para se comunicar com o vCenter Server. Essa porta também é necessária para obter as configurações TCP/IP.
+
+
+
+ a| 
+443
+ a| 
+Dependendo de como você configurou suas credenciais, o VMware vCenter Server e os sistemas de armazenamento escutam comunicações seguras nessa porta.
+
+
+
+ a| 
+8143
+ a| 
+O VSC escuta comunicações seguras nesta porta.
+
+
+
+ a| 
+7
+ a| 
+O VSC envia uma solicitação de eco para o ONTAP para verificar a acessibilidade e é necessário somente ao adicionar o sistema de armazenamento e pode ser desativado posteriormente.
+
+|===
+[NOTE]
+====
+Você deve ter habilitado o ICMP (Internet Control Message Protocol) antes de implantar o dispositivo virtual para VSC, provedor VASA e SRA.
+
+Se o ICMP estiver desativado, a configuração inicial do dispositivo virtual para VSC, provedor VASA e SRA falhará e o VSC não poderá iniciar os serviços do provedor VSC e VASA após a implantação. Você deve ativar manualmente os serviços VSC e VASA Provider após a implantação.
+
+====

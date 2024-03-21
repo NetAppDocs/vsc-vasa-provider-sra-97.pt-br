@@ -1,0 +1,29 @@
+---
+permalink: manage/reference-datastore-inaccessible-when-volume-status-is-changed-to-offline.html 
+sidebar: sidebar 
+keywords: datastore, inaccessible, when, volume, status, is, changed, to, offline, 
+summary: Datastore inacessível quando o status do volume é alterado para offline 
+---
+= Datastore inacessível quando o status do volume é alterado para offline
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+
+
+== Problema
+
+Quando um volume de um datastore é colocado off-line, o datastore fica inacessível. Mesmo se você colocar o volume on-line, o VSC não consegue descobrir o datastore. No vSphere Client, se você clicar com o botão direito do Mouse no datastore, nenhuma ação do VSC estará disponível.
+
+
+
+== Causa
+
+Quando o volume é colocado offline a partir do cluster, o volume é desmontado primeiro e, em seguida, fica offline ou restrito. O caminho de junção é removido quando o volume é colocado offline e o datastore fica inacessível. Se o volume estiver online, o caminho de junção não está disponível e não está montado no por predefinição. Este é o comportamento do ONTAP.
+
+
+
+== Ação corretiva
+
+Você deve colocar o volume on-line e, em seguida, montar manualmente o volume com o mesmo caminho de junção que antes. Você pode executar o reconhecimento de armazenamento para ver se o datastore foi descoberto e as ações do datastore estão disponíveis.

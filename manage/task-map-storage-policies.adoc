@@ -1,0 +1,28 @@
+---
+permalink: manage/task-map-storage-policies.html 
+sidebar: sidebar 
+keywords: mapping, storage, policies, 
+summary: Você deve mapear as políticas de armazenamento no local protegido para as políticas de armazenamento no local de recuperação para que seu plano de recuperação coloque as máquinas virtuais recuperadas nos datastores apropriados com base em seus mapeamentos. Depois que a máquina virtual for recuperada no site de recuperação, a Política de armazenamento de VM mapeada será atribuída à máquina virtual. 
+---
+= Mapear políticas de armazenamento
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você deve mapear as políticas de armazenamento no local protegido para as políticas de armazenamento no local de recuperação para que seu plano de recuperação coloque as máquinas virtuais recuperadas nos datastores apropriados com base em seus mapeamentos. Depois que a máquina virtual for recuperada no site de recuperação, a Política de armazenamento de VM mapeada será atribuída à máquina virtual.
+
+.Passos
+. No vSphere Client, clique no menu:Site Recovery[Open Site Recovery].
+. Na guia *Site Pair*, clique em menu:Configurar[Mapeamentos de políticas de armazenamento].
+. Selecione o site necessário e clique em *novo* para criar um novo mapeamento.
+. Selecione a opção *Prepare automaticamente mapeamentos para políticas de armazenamento com nomes correspondentes* e clique em *NEXT*.
++
+O SRM selecionará políticas de armazenamento no site protegido para o qual existe uma política de armazenamento com o mesmo nome no site de recuperação. Mas se você selecionar a opção de mapeamento manual, poderá selecionar várias políticas de armazenamento.
+
+. Clique em *Adicionar mapeamentos* e clique em *PRÓXIMO*.
+. Na seção *Reverse mapping*, marque as caixas de seleção necessárias para o mapeamento e clique em *NEXT*.
+. Na seção *Pronto para concluir*, revise suas seleções e clique em *CONCLUIR*.
+

@@ -1,0 +1,109 @@
+---
+permalink: deploy/reference-components-that-make-up-vcenter-server-permissions.html 
+sidebar: sidebar 
+keywords: components, vcenter, server, permissions, 
+summary: O vCenter Server reconhece permissões, não o Privileges. Cada permissão do vCenter Server consiste em três componentes. 
+---
+= Componentes das permissões do vCenter Server
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O vCenter Server reconhece permissões, não o Privileges. Cada permissão do vCenter Server consiste em três componentes.
+
+O vCenter Server tem os seguintes componentes:
+
+* Um ou mais Privileges (o papel)
++
+O Privileges define as tarefas que um usuário pode executar.
+
+* Um objeto vSphere
++
+O objeto é o alvo para as tarefas.
+
+* Um usuário ou grupo
++
+O usuário ou grupo define quem pode executar a tarefa.
+
+
+
+Como o diagrama a seguir ilustra, você deve ter todos os três elementos para ter uma permissão.
+
+[NOTE]
+====
+Neste diagrama, as caixas cinza indicam os componentes que existem no vCenter Server e as caixas brancas indicam os componentes que existem no sistema operacional em que o vCenter Server está sendo executado.
+
+====
+image::../media/permission-updated-graphic.png[gráfico de permissão atualizada]
+
+
+
+== Privileges
+
+Dois tipos de Privileges estão associados ao console de armazenamento virtual para VMware vSphere:
+
+* Privileges nativo do vCenter Server
++
+Esses Privileges vêm com o vCenter Server.
+
+* Privileges específico do VSC
++
+Esses Privileges são definidos para tarefas específicas do VSC. Eles são exclusivos do VSC.
+
+
+
+As tarefas do VSC exigem Privileges específico do VSC e Privileges nativo do vCenter Server. Estes Privileges constituem o "papel" para o usuário. Uma permissão pode ter vários Privileges. Esses Privileges são para um usuário conetado ao vCenter Server.
+
+[NOTE]
+====
+Para simplificar o trabalho com o vCenter Server RBAC, o VSC fornece várias funções padrão que contêm todas as Privileges nativas e específicas do VSC necessárias para executar tarefas do VSC.
+
+====
+Se você alterar o Privileges dentro de uma permissão, o usuário que está associado a essa permissão deve fazer logout e, em seguida, fazer login para ativar a permissão atualizada.
+
+[cols="1a,1a,1a"]
+|===
+| Privilégio | Funções | Tarefas 
+
+
+ a| 
+Menu:Console de armazenamento virtual do NetApp[Ver]
+ a| 
+* Administrador do VSC
+* Provisão de VSC
+* VSC somente leitura
+
+ a| 
+Todas as tarefas específicas do provedor VSC e VASA requerem o privilégio de exibição.
+
+
+
+ a| 
+Menu:Console de armazenamento virtual do NetApp[Gerenciamento baseado em políticas > Gerenciamento] ou menu:privilege.nvpfVSC.VASAGroup.com.NetApp.nvpf.label[Gerenciamento]
+ a| 
+Administrador do VSC
+ a| 
+Tarefas do fornecedor VSC e VASA relacionadas com perfis de capacidade de armazenamento e definições de limite.
+
+|===
+
+
+== Objetos vSphere
+
+As permissões são associadas a objetos vSphere, como vCenter Server, hosts ESXi, máquinas virtuais, datastores, data centers e pastas. Você pode atribuir permissões a qualquer objeto vSphere. Com base na permissão atribuída a um objeto vSphere, o vCenter Server determina quem pode executar quais tarefas nesse objeto. Para tarefas específicas do VSC, as permissões são atribuídas e validadas somente no nível da pasta raiz (vCenter Server) e não em nenhuma outra entidade. Exceto para a operação do plugin VAAI, onde as permissões são validadas em relação ao ESXi em questão .
+
+
+
+== Usuários e grupos
+
+Você pode usar o ative Directory (ou a máquina local do vCenter Server) para configurar usuários e grupos de usuários. Em seguida, você pode usar permissões do vCenter Server para conceder acesso a esses usuários ou grupos para permitir que eles executem tarefas específicas do VSC.
+
+[NOTE]
+====
+Essas permissões do vCenter Server se aplicam aos usuários do VSC vCenter, não aos administradores do VSC. Por padrão, os administradores do VSC têm acesso total ao produto e não exigem permissões atribuídas a eles.
+
+====
+Usuários e grupos não têm funções atribuídas a eles. Eles obtêm acesso a uma função fazendo parte de uma permissão do vCenter Server.

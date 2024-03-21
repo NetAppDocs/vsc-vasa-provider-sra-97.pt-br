@@ -1,0 +1,33 @@
+---
+permalink: manage/task-collect-the-log-files.html 
+sidebar: sidebar 
+keywords: collecting, the, log, files, 
+summary: 'Você pode coletar arquivos de log para o Virtual Storage Console para VMware vSphere na opção disponível na interface gráfica do usuário (GUI) do VSC. O suporte técnico pode solicitar que você colete os arquivos de log para ajudar a solucionar um problema.' 
+---
+= Recolha os ficheiros de registo
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode coletar arquivos de log para o Virtual Storage Console para VMware vSphere na opção disponível na interface gráfica do usuário (GUI) do VSC. O suporte técnico pode solicitar que você colete os arquivos de log para ajudar a solucionar um problema.
+
+.Sobre esta tarefa
+Se precisar de ficheiros de registo do fornecedor VASA, pode gerar um pacote de suporte a partir do ecrã *Painel de controlo do fornecedor*. Esta página faz parte dos menus de manutenção do fornecedor VASA, que são acessíveis a partir da consola do dispositivo virtual.
+
+https://vm_ip:9083[]
+
+Você pode coletar os arquivos de log do VSC usando o recurso ""Exportar logs do VSC"" na GUI do VSC. Quando você coletar um pacote de log VSC com o provedor VASA ativado, o pacote de log VSC também terá os logs VP. As etapas a seguir indicam como coletar os arquivos de log do VSC:
+
+.Passos
+. Na página inicial do Virtual Storage Console, clique em menu:Configuração[Exportar logs do VSC].
++
+Esta operação pode demorar vários minutos.
+
+. Quando solicitado, salve o arquivo no computador local.
++
+Você pode então enviar o `.zip` arquivo para o suporte técnico.
+
+

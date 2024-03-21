@@ -1,0 +1,30 @@
+---
+permalink: manage/concept-what-storage-capabilities-are.html 
+sidebar: sidebar 
+keywords: storage, capability, profiles, 
+summary: As funcionalidades de storage são um conjunto de atributos do sistema de storage que identifica um nível específico de performance de storage, eficiência de storage e outras funcionalidades, como criptografia para o objeto de storage associado à funcionalidade de storage. 
+---
+= Quais são as funcionalidades de storage
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+As funcionalidades de storage são um conjunto de atributos do sistema de storage que identifica um nível específico de performance de storage, eficiência de storage e outras funcionalidades, como criptografia para o objeto de storage associado à funcionalidade de storage.
+
+Para armazenamentos de dados tradicionais, você pode usar um perfil de capacidade de armazenamento para criar armazenamentos de dados de forma consistente com atributos comuns e atribuir política de QoS a eles. Durante o provisionamento, o VSC exibe clusters, SVMs e agregados que correspondem ao perfil de funcionalidades de storage. Você pode gerar um perfil de capacidade de armazenamento a partir de datastores tradicionais existentes usando a opção *GLOBAL auto-GENERATE PROFILES* no menu *Storage Mapping*. Depois que o perfil for criado, você poderá usar o VSC para monitorar a conformidade dos datastores com o perfil.
+
+Quando usado com datastores VVol, o assistente de provisionamento pode usar vários perfis de funcionalidades do storage para criar volumes FlexVol diferentes no datastore. Você pode usar a política de armazenamento de VM para criar automaticamente vols para uma máquina virtual em volumes FlexVol apropriados, conforme definido. Por exemplo, você pode criar perfis para classes de armazenamento comuns (como limites de desempenho e outros recursos, como criptografia ou FabricPool). Posteriormente, você pode criar políticas de armazenamento de VM no vCenter Server representando classes de negócios de máquinas virtuais e vinculá-las ao perfil de capacidade de armazenamento apropriado por nome (por exemplo, produção, Teste, RH).
+
+Quando usado com VVols, o perfil de capacidade de storage também é usado para definir o desempenho do storage para a máquina virtual individual e colocá-lo na FlexVol volume no datastore da vVol que melhor atende aos requisitos de desempenho. Você pode especificar uma política de QoS com IOPS mínimo e/ou máximo para performance. Você pode usar as políticas padrão ao provisionar inicialmente uma máquina virtual ou alterar a política de armazenamento de VM mais tarde, se os requisitos da empresa mudarem.
+
+Em seguida, o vCenter Server associa a capacidade de armazenamento de um LUN ou volume ao datastore que é provisionado nesse LUN ou volume. Isso permite provisionar uma máquina virtual em um datastore que corresponda ao perfil de armazenamento da máquina virtual e garantir que todos os datastores em um cluster de datastore tenham os mesmos níveis de serviço de armazenamento.
+
+Com o dispositivo virtual para Virtual Storage Console (VSC), Vasa Provider e Storage Replication Adapter (SRA), você pode configurar cada datastore de volume virtual (VVol) com um novo perfil de capacidade de armazenamento que suporta o provisionamento de máquinas virtuais com diferentes requisitos de IOPS no mesmo armazenamento de dados da VVol. Durante a execução do fluxo de trabalho de provisionamento de VM com o requisito de IOPS, todos os datastores da VVol estão listados na lista de datastore compatível.
+
+[NOTE]
+====
+Quando você tenta provisionar ou modificar máquinas virtuais para o vCenter Server antes de 6,5, apenas os armazenamentos de dados da vVol que contêm perfis de capacidade de armazenamento com desempenho definido como "MAX_IOPS" são listados na lista de datastore compatível. Os armazenamentos de dados restantes da vVol estão listados na lista de datastore incompatível. Você pode ignorar essa classificação e selecionar qualquer datastore da vVol na lista de datastore incompatível para provisionar ou modificar a máquina virtual.
+
+====

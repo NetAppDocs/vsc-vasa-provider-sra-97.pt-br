@@ -1,0 +1,49 @@
+---
+permalink: deploy/reference-configure-guest-operating-system-scripts.html 
+sidebar: sidebar 
+keywords: guest, operating, system, configuring, scripts, 
+summary: 'As imagens ISO dos scripts do sistema operacional convidado (SO) são montadas no Virtual Storage Console para servidor VMware vSphere. Para usar os scripts Guest os para definir os tempos limite de armazenamento para máquinas virtuais, você deve montar os scripts do vSphere Client.' 
+---
+= Configurar scripts do sistema operacional convidado
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+As imagens ISO dos scripts do sistema operacional convidado (SO) são montadas no Virtual Storage Console para servidor VMware vSphere. Para usar os scripts Guest os para definir os tempos limite de armazenamento para máquinas virtuais, você deve montar os scripts do vSphere Client.
+
+[cols="1a,1a,1a"]
+|===
+| Tipo de sistema operativo | definições de tempo limite de 60 segundos | definições de tempo limite de 190 segundos 
+
+
+ a| 
+Linux
+ a| 
+`_https_://<appliance_ip>:8143/vsc/public/writable/linux_gos_timeout-install.iso`
+ a| 
+`_https_://<appliance_ip>:8143/vsc/public/writable/linux_gos_timeout_190-install.iso`
+
+
+
+ a| 
+Windows
+ a| 
+`_https_://<appliance_ip>:8143/vsc/public/writable/windows_gos_timeout.iso`
+ a| 
+`_https_://<appliance_ip>:8143/vsc/public/writable/windows_gos_timeout_190.iso`
+
+
+
+ a| 
+Solaris
+ a| 
+`_https_://<appliance_ip>:8143/vsc/public/writable/solaris_gos_timeout-install.iso`
+ a| 
+`_https_://<appliance_ip>:8143/vsc/public/writable/solaris_gos_timeout_190-install.iso`
+
+|===
+Você deve instalar o script a partir da cópia da instância do VSC registrada no vCenter Server que gerencia a máquina virtual. Se o seu ambiente incluir vários vCenter Servers, você deve selecionar o servidor que contém a máquina virtual para a qual deseja definir os valores de tempo limite de armazenamento.
+
+Você deve fazer login na máquina virtual e, em seguida, executar o script para definir os valores de tempo limite de armazenamento.

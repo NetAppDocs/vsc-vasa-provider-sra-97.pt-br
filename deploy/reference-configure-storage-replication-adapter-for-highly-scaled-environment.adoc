@@ -1,0 +1,43 @@
+---
+permalink: deploy/reference-configure-storage-replication-adapter-for-highly-scaled-environment.html 
+sidebar: sidebar 
+keywords: configuration, storage, replication, adapter, highly, scaled, environment, 
+summary: 'Você deve configurar os intervalos de tempo de armazenamento de acordo com as configurações recomendadas para Storage Replication Adapter (SRA) para ter um desempenho ideal em ambientes altamente dimensionados.' 
+---
+= Configuração do adaptador de replicação de armazenamento para ambiente altamente dimensionado
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você deve configurar os intervalos de tempo de armazenamento de acordo com as configurações recomendadas para Storage Replication Adapter (SRA) para ter um desempenho ideal em ambientes altamente dimensionados.
+
+
+
+== Definições do fornecedor de armazenamento
+
+* Tem de aumentar o valor da `StorageProvider.resignatureTimeout` definição de 900 segundos para 12000 segundos.
+* Tem de ativar a `StorageProvider.autoResignatureMode` opção.
+
+
+Consulte a documentação da VMware para obter mais informações sobre como modificar as configurações do provedor de armazenamento.
+
+https://docs.vmware.com/en/Site-Recovery-Manager/6.5/com.vmware.srm.admin.doc/GUID-E4060824-E3C2-4869-BC39-76E88E2FF9A0.html["Documentação do VMware vSphere: Altere as configurações do provedor de armazenamento"^]
+
+
+
+== Definições de armazenamento
+
+Você deve definir o valor do `storage.commandTimeout` intervalo de tempo limite para ambientes altamente dimensionados para 12.000 segundos.
+
+[NOTE]
+====
+O intervalo de tempo limite especificado é o valor máximo. Não é necessário esperar que o tempo limite máximo seja atingido. A maioria dos comandos termina dentro do intervalo de tempo limite máximo definido.
+
+====
+https://kb.netapp.com/app/answers/answer_view/a_id/1001111["Resposta 1001111 da base de conhecimento da NetApp: Adaptador de replicação de armazenamento NetApp 4,0/7.X para Guia de dimensionamento de ONTAP"^]
+
+A documentação da VMware sobre como modificar as configurações do provedor de SAN tem mais informações.
+
+https://docs.vmware.com/en/Site-Recovery-Manager/6.5/com.vmware.srm.admin.doc/GUID-711FD223-50DB-414C-A2A7-3BEB8FAFDBD9.html["Documentação do VMware Site Recovery Manager: Altere as configurações de armazenamento"^]

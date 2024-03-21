@@ -1,0 +1,59 @@
+---
+permalink: deploy/reference-deploment-customization-requirements.html 
+sidebar: sidebar 
+keywords: deployment, customization, considerations, 
+summary: Você deve considerar algumas limitações ao personalizar a implantação do dispositivo virtual para VSC, provedor VASA e SRA. 
+---
+= Considerações sobre personalização da implantação
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você deve considerar algumas limitações ao personalizar a implantação do dispositivo virtual para VSC, provedor VASA e SRA.
+
+
+
+== Senha de usuário do administrador do dispositivo
+
+Você não deve usar nenhum espaço na senha do administrador.
+
+
+
+== Credenciais do console de manutenção do dispositivo
+
+Você deve acessar o console de manutenção usando o nome de usuário "mal". Você pode definir a senha para o usuário "não" durante a implantação. Você pode usar o menu *Configuração da aplicação* do console de manutenção do seu dispositivo virtual para VSC, Fornecedor VASA e SRA para alterar a senha.
+
+
+
+== Credenciais de administrador do vCenter Server
+
+Você pode definir as credenciais de administrador para o vCenter Server enquanto implementa o dispositivo virtual para VSC, provedor VASA e SRA.
+
+Se a senha do vCenter Server for alterada, você poderá atualizar a senha do administrador usando o seguinte URL: `_https_://<IP>:8143/Register.html` Onde o endereço IP é do dispositivo virtual para VSC, provedor VASA e SRA que você fornece durante a implantação.
+
+
+
+== Endereço IP do vCenter Server
+
+* Você deve fornecer o endereço IP (IPv4 ou IPv6) da instância do vCenter Server para a qual deseja Registrar o dispositivo virtual para VSC, provedor VASA e SRA.
++
+O tipo de certificados VSC e VASA gerados depende do endereço IP (IPv4 ou IPv6) fornecido durante a implantação. Ao implantar o dispositivo virtual para VSC, provedor VASA e SRA, se você não tiver inserido nenhum detalhe de IP estático e seu DHCP, a rede fornecerá endereços IPv4 e IPv6.
+
+* O dispositivo virtual para VSC, provedor VASA e endereço IP SRA usado para Registrar no vCenter Server depende do tipo de endereço IP do vCenter Server (IPv4 ou IPv6) inserido no assistente de implantação.
++
+Os certificados VSC e VASA serão gerados usando o mesmo tipo de endereço IP usado durante o Registro do vCenter Server.
+
+
+
+[NOTE]
+====
+O IPv6 é compatível apenas com o vCenter Server 6,7 e posterior.
+
+====
+
+
+== Propriedades da rede do dispositivo
+
+Se você não estiver usando DHCP, especifique um nome de host DNS válido (não qualificado), bem como o endereço IP estático para o dispositivo virtual para VSC, provedor VASA e SRA e os outros parâmetros de rede. Todos esses parâmetros são necessários para a instalação e operação adequadas.

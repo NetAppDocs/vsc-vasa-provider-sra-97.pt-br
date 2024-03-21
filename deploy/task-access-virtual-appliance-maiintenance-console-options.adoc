@@ -1,0 +1,112 @@
+---
+permalink: deploy/task-access-virtual-appliance-maiintenance-console-options.html 
+sidebar: sidebar 
+keywords: accessing, maintenance, console, options, virtual, appliance, vsc, vasa, provider, sra, 
+summary: 'Você pode gerenciar suas configurações de aplicativo, sistema e rede usando o console de manutenção do dispositivo virtual para Virtual Storage Console (VSC), provedor VASA e adaptador de replicação de armazenamento (SRA). Pode alterar a palavra-passe do administrador e a palavra-passe de manutenção. Você também pode gerar pacotes de suporte, definir diferentes níveis de log, exibir e gerenciar configurações TLS e iniciar diagnósticos remotos.' 
+---
+= Acesse as opções do console de manutenção do dispositivo virtual para VSC, provedor VASA e SRA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode gerenciar suas configurações de aplicativo, sistema e rede usando o console de manutenção do dispositivo virtual para Virtual Storage Console (VSC), provedor VASA e adaptador de replicação de armazenamento (SRA). Pode alterar a palavra-passe do administrador e a palavra-passe de manutenção. Você também pode gerar pacotes de suporte, definir diferentes níveis de log, exibir e gerenciar configurações TLS e iniciar diagnósticos remotos.
+
+.Antes de começar
+Você deve ter instalado as ferramentas VMware depois de implantar o dispositivo virtual para VSC, provedor VASA e SRA.
+
+.Sobre esta tarefa
+* Você deve usar "'mint'" como o nome de usuário e a senha que você configurou durante a implantação para fazer login no console de manutenção do dispositivo virtual para VSC, provedor VASA e SRA.
+* Você deve definir uma senha para o usuário "DIAG" enquanto ativa o diagnóstico remoto.
+
+
+.Passos
+. Acesse a guia *Summary* do seu dispositivo virtual implantado.
+. Clique image:../media/launch-maintenance-console.gif[""] em para iniciar a consola de manutenção.
++
+Você pode acessar as seguintes opções do console de manutenção:
+
++
+** *Configuração da aplicação*
++
+Estão disponíveis as seguintes opções:
+
++
+*** Apresentar resumo do estado do servidor
+*** Inicie o serviço do Virtual Storage Console
+*** Interrompa o serviço do Virtual Storage Console
+*** Inicie o fornecedor VASA e o serviço SRA
+*** Pare o fornecedor VASA e o serviço SRA
+*** Altere a palavra-passe do utilizador "administrador"
+*** Re-gerar certificados
+*** Restauração forçada de keystore e certificados
+*** Base de dados de reposição forçada
+*** Altere o nível DE LOG do serviço Virtual Storage Console
+*** Altere o nível DE LOG para o provedor VASA e o serviço SRA
+*** Apresentar a configuração TLS
+*** Ativar o protocolo TLS
+*** Desativar protocolo TLS
+
+
+** *Configuração do sistema*
++
+Estão disponíveis as seguintes opções:
+
++
+*** Reinicie a máquina virtual
+*** Encerre a máquina virtual
+*** Altere a palavra-passe do utilizador 'não'
+*** Alterar fuso horário
+*** Altere o servidor NTP
++
+Você pode fornecer um endereço IPv6 para o seu servidor NTP.
+
+*** Ativar/desativar o acesso SSH
+*** Aumentar o tamanho do disco de cadeia (/jail)
+*** Atualização
+*** Instale o VMware Tools
+
+
+** *Configuração de rede*
++
+Estão disponíveis as seguintes opções:
+
++
+*** Apresentar definições de endereço IP
+*** Altere as definições do endereço IP
++
+Você pode usar essa opção para alterar a implantação do endereço IP pós-implantação para IPv6.
+
+*** Exibir configurações de pesquisa de nome de domínio
+*** Altere as configurações de pesquisa de nome de domínio
+*** Apresentar rotas estáticas
+*** Alterar rotas estáticas
++
+Pode utilizar esta opção para adicionar uma rota IPv6D.
+
+*** Confirmar alterações
+*** Faça ping em um host
++
+Você pode usar essa opção para fazer ping para um host IPv6.
+
+*** Restaure as predefinições
+
+
+** *Suporte e Diagnóstico*
++
+Estão disponíveis as seguintes opções:
+
++
+*** Gerar pacote de suporte
+*** Aceder ao shell de diagnóstico
+*** Ative o acesso de diagnóstico remoto
+
+
+
+
+
+
+*Informações relacionadas*
+
+xref:concept-virtual-storage-console-and-vasa-provider-log-files.adoc[Arquivos de log do provedor VSC e VASA]

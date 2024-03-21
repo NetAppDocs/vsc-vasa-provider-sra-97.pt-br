@@ -1,0 +1,41 @@
+---
+permalink: deploy/concept-supported-storage-system-and-applications.html 
+sidebar: sidebar 
+keywords: supported, storage, system, licensing, applications, virtual, appliance, vsc, vasa, provider, sra, 
+summary: 'Você deve estar ciente dos requisitos básicos do sistema de armazenamento, requisitos de aplicativos e requisitos de licença antes de começar a implantar o dispositivo virtual para Virtual Storage Console (VSC), Fornecedor VASA e adaptador de replicação de armazenamento (SRA).' 
+---
+= Sistema de storage compatível, licenciamento e aplicativos para o dispositivo virtual para VSC, provedor VASA e SRA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você deve estar ciente dos requisitos básicos do sistema de armazenamento, requisitos de aplicativos e requisitos de licença antes de começar a implantar o dispositivo virtual para Virtual Storage Console (VSC), Fornecedor VASA e adaptador de replicação de armazenamento (SRA).
+
+O (IMT) contém as informações mais recentes sobre as versões suportadas do ONTAP, vCenter Server, hosts ESXi, aplicativos plug-in e SRM (Gerenciador de recuperação de site).
+
+* https://imt.netapp.com/matrix/imt.jsp?components=97563;&solution=56&isHWU&src=IMT["Ferramenta de Matriz de interoperabilidade: VSC 9.7.1"^]
+* https://imt.netapp.com/matrix/imt.jsp?components=97564;&solution=376&isHWU&src=IMT["Ferramenta de Matriz de interoperabilidade: VASA Provider 9.7.1"^]
+* https://imt.netapp.com/matrix/imt.jsp?components=97565;&solution=576&isHWU&src=IMT["Ferramenta de Matriz de interoperabilidade: SRA 9.7.1"^]
+
+
+Você deve habilitar a licença do FlexClone para executar operações de snapshot de máquina virtual e operações de clone para datastores do VMware Virtual volumes (vVols).
+
+O adaptador de replicação de armazenamento (SRA) requer as seguintes licenças:
+
+* Licença SnapMirror
++
+Você deve habilitar a licença SnapMirror para executar operações de failover para SRA.
+
+* Licença FlexClone
++
+Você deve habilitar a licença FlexClone para executar operações de failover de teste para SRA.
+
+
+
+Para exibir o IOPS de um datastore, você deve habilitar o controle de e/S de armazenamento ou desmarcar a caixa de seleção desabilitar coleção de estatísticas de e/S de armazenamento na configuração de controle de e/S de armazenamento. Você pode ativar o controle de e/S de storage somente se tiver a licença Enterprise Plus da VMware.
+
+* https://kb.vmware.com/s/article/1022091["Artigo 1022091 da VMware KB: Solução de problemas de controle de e/S de storage"^]
+* https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.resmgmt.doc/GUID-37CC0E44-7BC7-479C-81DC-FFFC21C1C4E3.html["Documentação do VMware vSphere: Requisitos de controle de e/S de armazenamento"^]
+

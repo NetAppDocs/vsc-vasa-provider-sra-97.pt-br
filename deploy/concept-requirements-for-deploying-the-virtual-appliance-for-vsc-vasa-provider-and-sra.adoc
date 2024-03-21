@@ -1,0 +1,14 @@
+---
+permalink: deploy/concept-requirements-for-deploying-the-virtual-appliance-for-vsc-vasa-provider-and-sra.html 
+sidebar: sidebar 
+keywords: requirements, deploying, virtual, appliance, vsc, vasa, provider, sra, 
+summary: 'Você deve estar ciente dos requisitos de implantação antes de implantar o dispositivo virtual para Virtual Storage Console (VSC), Fornecedor VASA e adaptador de replicação de armazenamento (SRA), e você deve decidir as tarefas que deseja executar. Com base em suas tarefas, você pode escolher o modelo de implantação para implantar o dispositivo virtual para VSC, provedor VASA e SRA.' 
+---
+= Requisitos para a implantação do dispositivo virtual para VSC, provedor VASA e SRA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você deve estar ciente dos requisitos de implantação antes de implantar o dispositivo virtual para Virtual Storage Console (VSC), Fornecedor VASA e adaptador de replicação de armazenamento (SRA), e você deve decidir as tarefas que deseja executar. Com base em suas tarefas, você pode escolher o modelo de implantação para implantar o dispositivo virtual para VSC, provedor VASA e SRA.

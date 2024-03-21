@@ -1,0 +1,31 @@
+---
+permalink: manage/reference-edit-vm-storage-policies-after-upgrade-throws-error-message.html 
+sidebar: sidebar 
+keywords: vasa, provider, issue, while, editing, VM, Storage, policies, after, upgrade, 
+summary: 'Depois de atualizar a partir da versão 7,0 do dispositivo virtual para Virtual Storage Console (VSC), Fornecedor VASA e adaptador de replicação de armazenamento (SRA) para a versão mais recente do dispositivo virtual para VSC, Fornecedor VASA e SRA, se você tentar editar uma Política de armazenamento de VM existente antes de configurar novos perfis de capacidade de armazenamento, a seguinte mensagem de erro pode ser exibida: Há valores incorretos ou ausentes abaixo.' 
+---
+= Problema durante a edição de políticas de armazenamento de VM após a atualização
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Depois de atualizar a partir da versão 7,0 do dispositivo virtual para Virtual Storage Console (VSC), Fornecedor VASA e adaptador de replicação de armazenamento (SRA) para a versão mais recente do dispositivo virtual para VSC, Fornecedor VASA e SRA, se tentar editar uma política de armazenamento de VM existente antes de configurar novos perfis de capacidade de armazenamento, a seguinte mensagem de erro poderá ser exibida: `There are incorrect or missing values below`.
+
+
+
+== Causa
+
+Você pode receber esse erro se não tiver criado novos perfis de capacidade de armazenamento.
+
+
+
+== Ação corretiva
+
+Você deve executar o seguinte:
+
+. Pare de editar a Política de armazenamento da VM.
+. Criar um novo perfil de capacidade de armazenamento.
+. Modifique a Política de armazenamento de VM necessária.
+

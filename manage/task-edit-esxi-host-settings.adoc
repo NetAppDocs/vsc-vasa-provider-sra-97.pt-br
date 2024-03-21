@@ -1,0 +1,64 @@
+---
+permalink: manage/task-edit-esxi-host-settings.html 
+sidebar: sidebar 
+keywords: editing, esxi, host, settings, for, vsc, vasa, provider, and, sra, 
+summary: 'Você pode usar o painel do dispositivo virtual para Virtual Storage Console (VSC), Fornecedor VASA e adaptador de replicação de armazenamento (SRA) para editar as configurações do host ESXi.' 
+---
+= Edite as configurações do host ESXi para VSC, provedor VASA e SRA
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode usar o painel do dispositivo virtual para Virtual Storage Console (VSC), Fornecedor VASA e adaptador de replicação de armazenamento (SRA) para editar as configurações do host ESXi.
+
+.Antes de começar
+Você deve ter configurado um sistema host ESXi para sua instância do vCenter Server.
+
+.Sobre esta tarefa
+Se houver um problema com as configurações do host ESXi, o problema será exibido no portlet ESXi Host Systems do painel. Você pode clicar no problema para exibir o nome do host ou o endereço IP do host ESXi que tem o problema.
+
+.Passos
+. Na página vSphere Client *Home*, clique em *Virtual Storage Console*.
+. Edite as configurações do host ESXi.
++
+[cols="1a,1a"]
+|===
+| Se você quiser editar as configurações do host ESXi de... | Faça isso... 
+
+
+ a| 
+Problemas exibidos
+ a| 
+.. Clique no problema no portlet ESXi Host Systems.
+.. Clique nos nomes de host ESXi para os quais você deseja modificar as configurações.
+.. Clique com o botão direito do Mouse no nome do host ESXi e clique em menu:NetApp VSC[Definir valores recomendados].
+.. Modifique as configurações necessárias e clique em *OK*.
+
+
+
+
+ a| 
+Página inicial do vSphere Client
+ a| 
+.. Clique em menu:Menu[hosts and clusters].
+.. Clique com o botão direito do Mouse no host ESXi desejado e selecione menu:NetApp VSC[Definir valor recomendado].
+.. Clique em *OK*.
+
+
+
+
+ a| 
+Portlet ESXi Host Systems
+ a| 
+.. Clique na guia *painel tradicional* na seção Visão geral do VSC.
+.. Clique em *Editar configurações do host ESXi*.
+.. Selecione o nome do host ESXi na guia Configurações e status do host para o qual você deseja modificar as configurações e clique em *PRÓXIMO*.
+.. Selecione as configurações necessárias na guia Configurações recomendadas do host e clique em *Avançar*.
+.. Revise sua seleção na guia Resumo e clique em *FINISH*.
+
+
+|===
+

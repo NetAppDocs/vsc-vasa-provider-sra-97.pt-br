@@ -1,0 +1,62 @@
+---
+permalink: deploy/task-enable-datastore-mounting-across-different-subnets.html 
+sidebar: sidebar 
+keywords: enabling, datastore, mounting, across, different, subnets, 
+summary: 'Se você usar iSCSI ou NFS e a sub-rede for diferente entre os hosts ESXi e o sistema de storage, será necessário modificar o console de armazenamento virtual para os arquivos de preferências do VMware vSphere. Se você não modificar o arquivo de preferências, o provisionamento do datastore falhará porque (VSC) não pode montar o datastore.' 
+---
+= Habilite a montagem do datastore em diferentes sub-redes
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se você usar iSCSI ou NFS e a sub-rede for diferente entre os hosts ESXi e o sistema de storage, será necessário modificar o console de armazenamento virtual para os arquivos de preferências do VMware vSphere. Se você não modificar o arquivo de preferências, o provisionamento do datastore falhará porque (VSC) não pode montar o datastore.
+
+.Sobre esta tarefa
+Quando o provisionamento do datastore falha, o VSC Registra as seguintes mensagens de erro:
+
+`Unable to continue. No ip addresses found when cross-referencing kernel ip addresses and addresses on the controller.`
+
+`Unable to find a matching network to NFS mount volume to these hosts.` ""
+
+.Passos
+. Faça login na instância do vCenter Server.
+. Inicie o console de manutenção usando sua máquina virtual unificada de dispositivos.
++
+link:task-access-virtual-appliance-maiintenance-console-options.html["Acesse as opções do console de manutenção do dispositivo virtual para VSC, provedor VASA e SRA"]
+
+. Digite `4` para acessar a opção *suporte e Diagnóstico*.
+. Digite `2` para acessar a opção *Access Diagnostic Shell*.
+. Introduza `vi /opt/netapp/vscserver/etc/kamino/kaminoprefs.xml` para atualizar o `kaminoprefs.xml` ficheiro.
+. Atualize o `kaminoprefs.xml` ficheiro.
++
+[cols="1a,1a"]
+|===
+| Se você usar... | Faça isso... 
+
+
+ a| 
+ISCSI
+ a| 
+Altere o valor da chave de entrada `default.allow.iscsi.mount.networks` DE TODOS para o valor das redes de host ESXi.
+
+
+
+ a| 
+NFS
+ a| 
+Altere o valor da chave de entrada `default.allow.nfs.mount.networks` DE TODOS para o valor das redes de host ESXi.
+
+|===
++
+O arquivo de preferências inclui valores de amostra para essas chaves de entrada.
+
++
+[NOTE]
+====
+O valor "TUDO" não significa todas as redes. O valor "'ALL'" permite que todas as redes correspondentes, entre o host e o sistema de armazenamento, sejam usadas para a montagem de datastores. Quando você especifica redes de host, você pode habilitar a montagem somente nas sub-redes especificadas.
+
+====
+. Salve e feche o `kaminoprefs.xml` arquivo.
+

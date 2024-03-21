@@ -1,0 +1,35 @@
+---
+permalink: deploy/task-add-storage-systems.html 
+sidebar: sidebar 
+keywords: adding, storage, systems, vsc, 
+summary: 'Você pode adicionar manualmente o sistema de armazenamento ao Virtual Storage Console (VSC).' 
+---
+= Adicione sistemas de armazenamento ao VSC
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode adicionar manualmente o sistema de armazenamento ao Virtual Storage Console (VSC).
+
+.Sobre esta tarefa
+Sempre que iniciar (VSC) ou selecionar a opção *REREDESCOBRIR tudo*, o VSC descobre automaticamente os sistemas de armazenamento disponíveis.
+
+.Passos
+. Adicione um sistema de armazenamento ao VSC utilizando a página inicial do VSC:
++
+** Clique em menu:sistemas de armazenamento[Add].
+** Clique em menu:Visão geral[Introdução] e, em seguida, clique no botão *ADICIONAR* em *Adicionar sistema de armazenamento*.
+
+
+. Na caixa de diálogo *Add Storage System* (Adicionar sistema de armazenamento), insira o endereço IP de gerenciamento e as credenciais desse sistema de armazenamento.
++
+Você também pode adicionar sistemas de armazenamento usando o endereço IPv6 do cluster ou . Você também pode alterar os padrões para TLS e o número da porta nesta caixa de diálogo.
+
++
+Quando você adiciona armazenamento a partir da página VSC *Storage System*, você também deve especificar a instância do vCenter Server onde o armazenamento será localizado. A caixa de diálogo *Adicionar sistema de armazenamento* fornece uma lista suspensa das instâncias disponíveis do vCenter Server. O VSC não exibe essa opção se você estiver adicionando armazenamento a um datacenter que já esteja associado a uma instância do vCenter Server.
+
+. Clique em *OK* depois de adicionar todas as informações necessárias.
+

@@ -1,0 +1,34 @@
+---
+permalink: manage/task-protect-non-protected-virtual-machines.html 
+sidebar: sidebar 
+keywords: virtual, machines, configuring, protection, protecting, unprotected, virtual, machines, 
+summary: Você pode configurar a proteção para suas máquinas virtuais não protegidas existentes que foram criadas usando a Política de armazenamento de VM com replicação desativada. Para fornecer proteção, você deve alterar a política de armazenamento de VM e atribuir um grupo de replicação. 
+---
+= Proteja máquinas virtuais desprotegidas
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode configurar a proteção para suas máquinas virtuais não protegidas existentes que foram criadas usando a Política de armazenamento de VM com replicação desativada. Para fornecer proteção, você deve alterar a política de armazenamento de VM e atribuir um grupo de replicação.
+
+.Sobre esta tarefa
+Se o SVM tiver LIFs IPv4 e IPv6, desative os LIFs IPv6 e, posteriormente, execute fluxos de trabalho de recuperação de desastres.
+
+.Passos
+. Clique na máquina virtual necessária e verifique se ela está configurada com a política de armazenamento de VM padrão.
+. Clique com o botão direito do rato na máquina virtual selecionada e clique no menu:políticas de VM[Editar políticas de armazenamento de VM].
+. Selecione uma política de armazenamento de VM que tenha a replicação ativada na lista suspensa *Política de armazenamento de VM*.
+. Selecione um grupo de replicação no menu suspenso *Replication group* e clique em *OK*.
++
+Verifique o Resumo da máquina virtual para confirmar se a máquina virtual está protegida.
+
++
+[NOTE]
+====
+Esta versão do dispositivo virtual para VSC, VASA Provider e SRA não suporta hot clone de máquinas virtuais protegidas. Você deve desligar a máquina virtual e, em seguida, executar a operação clone.
+
+====
+

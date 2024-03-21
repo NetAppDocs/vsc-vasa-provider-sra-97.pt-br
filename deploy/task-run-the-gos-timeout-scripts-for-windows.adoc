@@ -1,0 +1,31 @@
+---
+permalink: deploy/task-run-the-gos-timeout-scripts-for-windows.html 
+sidebar: sidebar 
+keywords: setting, timeout, values, windows, guest, operating, systems, 
+summary: 'Os scripts de tempo limite do sistema operacional convidado (os) definem as configurações de tempo limite de e/S SCSI para sistemas operacionais convidados Windows. Você pode especificar um tempo limite de 60 segundos ou um tempo limite de 190 segundos. Você deve reiniciar o sistema operacional convidado do Windows para que as configurações entrem em vigor.' 
+---
+= Definir valores de tempo limite para os sistemas operacionais convidados do Windows
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Os scripts de tempo limite do sistema operacional convidado (os) definem as configurações de tempo limite de e/S SCSI para sistemas operacionais convidados Windows. Você pode especificar um tempo limite de 60 segundos ou um tempo limite de 190 segundos. Você deve reiniciar o sistema operacional convidado do Windows para que as configurações entrem em vigor.
+
+.Antes de começar
+Você deve ter montado a imagem ISO contendo o script do Windows.
+
+.Passos
+. Acesse o console da máquina virtual do Windows e faça login em uma conta com o Privileges do Administrador.
+. Se o script não for iniciado automaticamente, abra a unidade de CD e execute o `windows_gos_timeout.reg` script.
++
+É apresentada a caixa de diálogo Editor do Registo.
+
+. Clique em *Yes* para continuar.
++
+É apresentada a seguinte mensagem: `The keys and values contained in D:\windows_gos_timeout.reg have been successfully added to the registry.`
+
+. Reinicie o SO convidado do Windows.
+. Desmonte a imagem ISO.
+

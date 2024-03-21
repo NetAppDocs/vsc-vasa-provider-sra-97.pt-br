@@ -1,0 +1,62 @@
+---
+permalink: deploy/concept-standard-roles-packaged-with-virtual-appliance-for-vsc-vp-and-sra.html 
+sidebar: sidebar 
+keywords: standard, roles, packaged, virtual, appliance, vsc, vasa, provider, sra, 
+summary: 'Para simplificar o trabalho com o vCenter Server Privileges e o controle de acesso baseado em funções (RBAC), o VSC (Role-Based Access Control) fornece funções padrão do VSC que permitem executar tarefas importantes do VSC. Há também uma função somente leitura que permite exibir informações do VSC, mas não executar nenhuma tarefa.' 
+---
+= Funções padrão empacotadas com o dispositivo virtual para VSC, provedor VASA e SRA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para simplificar o trabalho com o vCenter Server Privileges e o controle de acesso baseado em funções (RBAC), o VSC (Role-Based Access Control) fornece funções padrão do VSC que permitem executar tarefas importantes do VSC. Há também uma função somente leitura que permite exibir informações do VSC, mas não executar nenhuma tarefa.
+
+As funções padrão do VSC têm o Privileges específico do VSC necessário e o vCenter Server Privileges nativo necessários para que os usuários executem tarefas do VSC. Além disso, as funções são configuradas para que tenham o Privileges necessário em todas as versões com suporte do vCenter Server.
+
+Como administrador, você pode atribuir essas funções aos usuários, conforme necessário.
+
+[NOTE]
+====
+Quando você atualiza o VSC para a versão mais recente, as funções padrão são atualizadas automaticamente para funcionar com a nova versão do VSC.
+
+====
+Você pode visualizar as funções padrão do VSC clicando em *Roles* na página vSphere Client *Home*.
+
+As funções que o VSC fornece permitem que você execute as seguintes tarefas:
+
+[cols="1a,1a"]
+|===
+| Função | Descrição 
+
+
+ a| 
+Administrador do VSC
+ a| 
+Fornece todas as Privileges nativas do vCenter Server Privileges e do VSC que são necessárias para executar todas as tarefas do VSC.
+
+
+
+ a| 
+VSC somente leitura
+ a| 
+Fornece acesso somente leitura ao VSC.
+
+Esses usuários não podem executar nenhuma ação VSC controlada pelo acesso.
+
+
+
+ a| 
+Provisão de VSC
+ a| 
+Fornece todo o vCenter Server Privileges nativo e o Privileges específico do VSC necessários para provisionar o storage.
+
+Você pode executar as seguintes tarefas:
+
+* Crie novos datastores
+* Destrua armazenamentos de dados
+* Ver informações sobre perfis de capacidade de armazenamento
+
+
+|===

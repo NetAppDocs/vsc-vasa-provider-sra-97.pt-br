@@ -1,0 +1,113 @@
+---
+permalink: deploy/reference-considerations-for-deploying-virtual-appliance-for-vsc-vasa-provider-and-sra.html 
+sidebar: sidebar 
+keywords: considerations, requirements, deploying, virtual, appliance, vsc, vasa, provider, sra, 
+summary: 'Antes de implantar o dispositivo virtual para o Virtual Storage Console (VSC), o Fornecedor VASA e o adaptador de replicação de armazenamento (SRA), é uma boa prática Planejar sua implantação e decidir como você deseja configurar o VSC, o Fornecedor VASA e o SRA em seu ambiente.' 
+---
+= Considerações e requisitos para implantar o dispositivo virtual para VSC, provedor VASA e SRA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de implantar o dispositivo virtual para o Virtual Storage Console (VSC), o Fornecedor VASA e o adaptador de replicação de armazenamento (SRA), é uma boa prática Planejar sua implantação e decidir como você deseja configurar o VSC, o Fornecedor VASA e o SRA em seu ambiente.
+
+A tabela a seguir apresenta uma visão geral do que você deve considerar antes de implantar o dispositivo virtual para VSC, provedor VASA e SRA.
+
+[cols="1a,1a"]
+|===
+| Considerações | Descrição 
+
+
+ a| 
+Implantação pela primeira vez do dispositivo virtual para VSC, provedor VASA e SRA
+ a| 
+A implantação do dispositivo virtual para VSC, provedor VASA e SRA instala automaticamente os recursos do VSC. link:concept-deploy-or-upgrade-ontap-tools.html["Implantação ou atualização do VSC, provedor VASA e SRA"^]
+
+link:concept-installation-workflow-for-new-users.html["Fluxo de trabalho de implantação para novos usuários do VSC, provedor VASA e dispositivo virtual SRA"^]
+
+
+
+ a| 
+Atualizando a partir de uma implantação existente do VSC
+ a| 
+O procedimento de atualização de uma implantação existente do VSC para o dispositivo virtual para VSC, Fornecedor VASA e SRA depende da versão do VSC e se você implantou o VSC, Fornecedor VASA e SRA. A seção de fluxos de trabalho e atualização de implantação tem mais informações. link:concept-installation-workflow-for-existing-users-of-vsc.html["Fluxo de trabalho de implantação para usuários existentes do VSC, provedor VASA e SRA"^]
+
+Práticas recomendadas antes de uma atualização:
+
+* Você deve Registrar informações sobre os sistemas de storage que estão sendo usados e suas credenciais.
++
+Após a atualização, você deve verificar se todos os sistemas de storage foram detetados automaticamente e se eles têm as credenciais corretas.
+
+* Se você modificou qualquer uma das funções padrão do VSC, copie essas funções para salvar suas alterações.
++
+O VSC substitui as funções padrão com os padrões atuais sempre que você reiniciar o serviço VSC.
+
+
+
+
+
+ a| 
+Regenerando um certificado SSL para VSC
+ a| 
+O certificado SSL é gerado automaticamente quando você implementa o dispositivo virtual para VSC, provedor VASA e SRA. Você pode ter que regenerar o certificado SSL para criar um certificado específico do site. link:task-regenerate-an-ssl-certificate-for-vsc.html["Regenere um certificado SSL para"^]
+
+
+
+ a| 
+Configurando os valores do servidor ESXi
+ a| 
+Embora a maioria dos valores do servidor ESXi sejam definidos por padrão, é uma boa prática verificar os valores. Esses valores são baseados em testes internos. Dependendo do seu ambiente, você pode ter que alterar alguns dos valores para melhorar o desempenho.
+
+* link:task-configure-esx-server-multipathing-and-timeout-settings.html["Configure as configurações de multipathing e timeout do servidor ESXi"^]
+* link:reference-esx-host-values-set-by-vsc-for-vmware-vsphere.html["Valores de host ESXi definidos usando o Virtual Storage Console para VMware vSphere"^]
+
+
+
+
+ a| 
+Valores de tempo limite do sistema operativo convidado
+ a| 
+Os scripts de tempo limite do sistema operacional convidado (SO convidado) definem os valores de tempo limite de e/S SCSI para os sistemas operacionais convidados Linux, Solaris e Windows com suporte para fornecer o comportamento correto de failover.
+
+|===
+A tabela a seguir apresenta uma visão geral do que você precisa para configurar o appliance virtual para VSC, provedor VASA e SRA.
+
+[cols="1a,1a"]
+|===
+| Considerações | Descrição 
+
+
+ a| 
+Requisitos dos controles de acesso baseados em função (RBAC)
+ a| 
+O VSC é compatível com o vCenter Server RBAC e o ONTAP RBAC. A conta usada para Registrar o VSC no vCenter Server (usando `_https_://<appliance_ip>:8143/Register.html`) deve ser um administrador do vCenter Server (atribuída ao administrador ou à função de administrador do vCenter Server). Se você pretende executar o VSC como administrador, você deve ter todas as permissões necessárias e o Privileges para todas as tarefas.
+
+Se a sua empresa exigir que você restrinja o acesso a objetos vSphere, você poderá criar e atribuir funções VSC padrão aos usuários para atender aos requisitos do vCenter Server.
+
+Você pode criar as funções recomendadas do ONTAP usando o Gerenciador de sistema do ONTAP usando o arquivo JSON fornecido com o dispositivo virtual para VSC, provedor VASA e SRA.
+
+Se um usuário tentar executar uma tarefa sem o Privileges e as permissões corretos, as opções de tarefa serão exibidas em cinza.
+
+* link:concept-standard-roles-packaged-with-virtual-appliance-for-vsc-vp-and-sra.html["Funções padrão empacotadas com o dispositivo virtual para VSC, provedor VASA e SRA"^]
+* link:concept-recommended-ontap-roles-when-using-vsc-for-vmware-vsphere.html["Funções recomendadas do ONTAP ao usar o VSC para VMware vSphere"^]
+
+
+
+
+ a| 
+Versão ONTAP
+ a| 
+Seus sistemas de storage devem estar executando o ONTAP 9.1, 9,3, 9,5, 9,6 ou 9,7.
+
+
+
+ a| 
+Perfis de capacidade de armazenamento
+ a| 
+Para utilizar perfis de capacidade de armazenamento ou para configurar alarmes, tem de ativar o Fornecedor VASA para ONTAP. Depois de ativar o provedor VASA, você pode configurar armazenamentos de dados do VMware Virtual volumes (vVols) e criar e gerenciar perfis e alarmes de capacidade de armazenamento.
+
+Os alarmes avisam quando um volume ou um agregado está com capacidade quase total ou quando um datastore não está mais em conformidade com o perfil de capacidade de armazenamento associado.
+
+|===

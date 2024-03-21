@@ -1,0 +1,26 @@
+---
+permalink: deploy/task-regenerate-an-ssl-certificate-for-vsc.html 
+sidebar: sidebar 
+keywords: regenerating, ssl, certificate, virtual, storage, console, 
+summary: 'O certificado SSL é gerado quando você instala (VSC). O nome distinto (DN) gerado para o certificado SSL pode não ser um nome comum (CN) que as máquinas cliente reconhecem. Ao alterar as senhas do keystore e da chave privada, você pode regenerar o certificado e criar um certificado específico do site.' 
+---
+= Regenerar um certificado SSL para o Virtual Storage Console
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O certificado SSL é gerado quando você instala (VSC). O nome distinto (DN) gerado para o certificado SSL pode não ser um nome comum (CN) que as máquinas cliente reconhecem. Ao alterar as senhas do keystore e da chave privada, você pode regenerar o certificado e criar um certificado específico do site.
+
+.Sobre esta tarefa
+Você pode ativar o diagnóstico remoto usando o console de manutenção e gerar certificado específico do local.
+
+https://kb.netapp.com/app/answers/answer_view/a_id/1075654["Resposta 1075654: Console de armazenamento virtual 7.x: Implementando certificados assinados pela CA NetApp"^]
+
+.Passos
+. Inicie sessão na consola de manutenção.
+. Entre `1` para aceder ao `Application Configuration` menu.
+.  `Application Configuration`No menu, aceda `3` para parar o serviço VSC.
+. Digite `7` para regenerar o certificado SSL.
+

@@ -1,0 +1,21 @@
+---
+settings:
+  name: VSC, VASA Provider, and SRA 9.7
+  internal:
+    pdf_enabled: true
+  prod:
+    pdf_enabled: true
+    harmony_enabled: false
+  langs: pt-br,us-en,ja-jp,ko-kr,zh-cn,zh-tw,de-de,es-es,fr-fr,it-it
+sidebar:
+  entries:
+  - title: VSC, VSA Provider e SRA docs
+    url: "/index.html"
+  - title: Notas de lançamento
+    url: "/release-notes.html"
+  - title: Início rápido
+    url: "/qsg.html"
+  - section: deploy
+  - section: manage
+  - title: Avisos legais
+    url: "/legal-notices.html"

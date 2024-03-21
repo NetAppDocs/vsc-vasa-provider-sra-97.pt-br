@@ -1,0 +1,16 @@
+---
+permalink: deploy/concept-installation-workflow-for-new-users.html 
+sidebar: sidebar 
+keywords: deployment, workflow, new, users, vsc, vasa, provider, sra, virtual, appliance, 
+summary: Se você é novo na VMware e nunca usou um produto NetApp VSC, precisará configurar o vCenter Server e configurar um host ESXi antes de implantar e configurar o dispositivo virtual para VSC, provedor VASA e SRA. 
+---
+= Fluxo de trabalho de implantação para novos usuários do VSC, provedor VASA e dispositivo virtual SRA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se você é novo na VMware e nunca usou um produto NetApp VSC, precisará configurar o vCenter Server e configurar um host ESXi antes de implantar e configurar o dispositivo virtual para VSC, provedor VASA e SRA.
+
+image::../media/new-user-deployment-workflow-vsc-vp-and-sra-7-0.gif[novo fluxo de trabalho de implantação de usuário vsc vp e sra 7 0]

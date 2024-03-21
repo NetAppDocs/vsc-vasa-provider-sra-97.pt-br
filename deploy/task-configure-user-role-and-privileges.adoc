@@ -1,0 +1,42 @@
+---
+permalink: deploy/task-configure-user-role-and-privileges.html 
+sidebar: sidebar 
+keywords: user, roles, configuring, user, roles, and, privileges, 
+summary: Você pode configurar novas funções de usuário para gerenciar sistemas de armazenamento usando o arquivo JSON fornecido com o dispositivo virtual para VSC, provedor VASA, SRA e Gerenciador de sistemas ONTAP. 
+---
+= Configurar funções de usuário e Privileges
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode configurar novas funções de usuário para gerenciar sistemas de armazenamento usando o arquivo JSON fornecido com o dispositivo virtual para VSC, provedor VASA, SRA e Gerenciador de sistemas ONTAP.
+
+.Antes de começar
+* Você deve ter baixado o arquivo ONTAP Privileges do dispositivo virtual para VSC, provedor VASA e SRA usando `+https://{virtual_appliance_IP}:9083/vsc/config/VSC_ONTAP_User_Privileges.zip+`o .
+* Você deve ter configurado o Gerenciador de sistema do ONTAP 9.7.
+* Você deve ter feito login com o administrador Privileges para o sistema de armazenamento.
+
+
+.passos
+. Descompacte o arquivo baixado `+https://{virtual_appliance_IP}:9083/vsc/config/VSC_ONTAP_User_Privileges.zip+`.
+. Acesse o Gerenciador do sistema do ONTAP.
+. Clique em menu:CLUSTER[Definições > utilizadores e funções].
+. Clique em *Add User*.
+. Na caixa de diálogo *Adicionar usuário*, selecione *Produtos de virtualização*.
+. Clique em *Procurar* para selecionar e carregar o arquivo JSON do ONTAP Privileges.
++
+O CAMPO DE PRODUTO é preenchido automaticamente.
+
+. Selecione a capacidade necessária no menu suspenso *PRODUCT CAPABILITY*.
++
+O campo *ROLE* é preenchido automaticamente com base na capacidade do produto selecionada.
+
+. Introduza o nome de utilizador e a palavra-passe necessários.
+. Selecione o Privileges (descoberta, criação de armazenamento, modificação de armazenamento, destruição de armazenamento) necessário para o usuário e clique em *Adicionar*.
+
+
+.Resultados
+A nova função e usuário são adicionados e você pode ver o Privileges detalhado na função que você configurou.

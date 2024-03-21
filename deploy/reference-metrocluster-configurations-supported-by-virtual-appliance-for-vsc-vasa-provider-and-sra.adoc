@@ -1,0 +1,46 @@
+---
+permalink: deploy/reference-metrocluster-configurations-supported-by-virtual-appliance-for-vsc-vasa-provider-and-sra.html 
+sidebar: sidebar 
+keywords: metroCluster, configurations, supported, virtual, appliance, vsc, vasa, provider, sra, 
+summary: 'O dispositivo virtual para o console de armazenamento virtual (VSC), o provedor VASA e o adaptador de replicação de armazenamento (SRA) são compatíveis com ambientes que usam configurações MetroCluster IP e FC para ONTAP. A maior parte deste suporte é automático. No entanto, você pode notar algumas diferenças quando você usa um ambiente MetroCluster com VSC e provedor VASA.' 
+---
+= Configurações do MetroCluster suportadas pelo dispositivo virtual para VSC, provedor VASA e SRA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O dispositivo virtual para o console de armazenamento virtual (VSC), o provedor VASA e o adaptador de replicação de armazenamento (SRA) são compatíveis com ambientes que usam configurações MetroCluster IP e FC para ONTAP. A maior parte deste suporte é automático. No entanto, você pode notar algumas diferenças quando você usa um ambiente MetroCluster com VSC e provedor VASA.
+
+
+
+== Configurações MetroCluster e VSC
+
+Você deve garantir que o VSC descubra os controladores do sistema de storage no local principal e no local secundário. Normalmente, o VSC descobre automaticamente controladores de storage. Se você estiver usando um LIF de gerenciamento de cluster, é uma boa prática verificar se o VSC descobriu os clusters em ambos os locais. Caso contrário, você pode adicionar manualmente os controladores de storage ao VSC. Você também pode modificar os pares de nome de usuário e senha que o VSC usa para se conetar aos controladores de armazenamento.
+
+Quando ocorre um switchover, o no local secundário assume o controle. Estes têm o sufixo "'-mc" anexado aos seus nomes. Se uma operação de comutação ocorrer enquanto você estiver executando operações como o provisionamento de um datastore, o nome do onde o datastore reside será alterado para incluir o sufixo "'-mc". Esse sufixo é descartado quando o switchback ocorre, e o no local principal resume o controle.
+
+[NOTE]
+====
+Se você adicionou diretamente com a configuração MetroCluster ao VSC, depois do switchover, a alteração no nome do SVM (a adição do sufixo "'-mc") não será refletida. Todas as outras operações de comutação continuam a ser executadas normalmente.
+
+====
+Quando ocorre um switchover ou um switchback, o VSC pode levar alguns minutos para detectar e descobrir os clusters automaticamente. Se isso acontecer enquanto você estiver executando uma operação do VSC, como o provisionamento de um datastore, você pode ter um atraso.
+
+
+
+== Configurações MetroCluster e Fornecedor VASA
+
+O provedor VASA suporta automaticamente ambientes que usam configurações do MetroCluster. O switchover é transparente em ambientes de provedores VASA. Não é possível adicionar diretamente ao fornecedor VASA.
+
+[NOTE]
+====
+O VASA Provider não acrescenta o sufixo "'-mc" aos nomes do no local secundário após uma mudança.
+
+====
+
+
+== Configurações MetroCluster e SRA
+
+O SRA não suporta configurações MetroCluster.

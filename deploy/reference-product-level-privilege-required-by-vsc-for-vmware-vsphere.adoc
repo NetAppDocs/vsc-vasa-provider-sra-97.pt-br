@@ -1,0 +1,36 @@
+---
+permalink: deploy/reference-product-level-privilege-required-by-vsc-for-vmware-vsphere.html 
+sidebar: sidebar 
+keywords: product-level, privilege, required, vsc, vmware, vsphere, 
+summary: Para acessar o Virtual Storage Console para a GUI do VMware vSphere, você deve ter o privilégio View específico do VSC no nível do produto atribuído no nível correto do objeto vSphere. Se você fizer login sem esse privilégio, o VSC exibirá uma mensagem de erro quando você clicar no ícone NetApp e impedirá que você acesse o VSC. 
+---
+= Privilégio em nível de produto exigido pelo VSC para VMware vSphere
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para acessar o Virtual Storage Console para a GUI do VMware vSphere, você deve ter o privilégio View específico do VSC no nível do produto atribuído no nível correto do objeto vSphere. Se você fizer login sem esse privilégio, o VSC exibirá uma mensagem de erro quando você clicar no ícone NetApp e impedirá que você acesse o VSC.
+
+As informações a seguir descrevem o privilégio visualização em nível de produto VSC:
+
+[cols="1a,1a,1a"]
+|===
+| Privilégio | Descrição | Nível de atribuição 
+
+
+ a| 
+Vista
+ a| 
+Você pode acessar a GUI do VSC. Este privilégio não lhe permite executar tarefas no VSC. Para executar quaisquer tarefas do VSC, você precisa ter o vCenter Server Privileges nativo e específico do VSC correto para essas tarefas.
+ a| 
+O nível de atribuição determina quais partes da IU você pode ver.
+
+A atribuição do privilégio Exibir no objeto raiz (pasta) permite que você entre no VSC clicando no ícone NetApp.
+
+Você pode atribuir o privilégio Exibir a outro nível de objeto vSphere; no entanto, isso limita os menus VSC que você pode ver e usar.
+
+O objeto raiz é o local recomendado para atribuir qualquer permissão que contenha o privilégio Exibir.
+
+|===

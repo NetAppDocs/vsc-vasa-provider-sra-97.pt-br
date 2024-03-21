@@ -1,0 +1,40 @@
+---
+permalink: deploy/reference-sra-adapter-installation-fails-with-script-error.html 
+sidebar: sidebar 
+keywords: storage, replication, adapter, installation, fails, with, script, error, 
+summary: A instalação do SRA falha com erro de script 
+---
+= A instalação do SRA falha com erro de script
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+
+
+== Problema
+
+A instalação do adaptador de replicação de armazenamento (SRA) no Windows 2008 R2 falha com um erro de credenciais inválidas.
+
+
+
+== Causa
+
+O erro pode ocorrer devido à ativação de diferentes versões do TLS (Transport Layer Security) no dispositivo virtual para VSC, Fornecedor VASA, SRA e Windows 2008 R2.
+
+
+
+== Ação corretiva
+
+Se você está tentando instalar o SRA no Windows 2008 R2, então você deve habilitar o TLSv1,0 para o dispositivo virtual para VSC, provedor VASA e SRA usando as seguintes etapas no console de manutenção:
+
+. Faça login no console de manutenção usando as credenciais do usuário "MAINT".
+. No menu principal, selecione *1* para o menu *Configuração da aplicação*.
+. Digite *13* no menu *Configuração da aplicação* para selecionar *Ativar protocolo TLS* no menu *Configuração da aplicação*.
+. Selecione *TLSv1* na lista de protocolos TLS.
++
+Os serviços VSC e VASA Provider são reiniciados e o TLSv1,0 está ativado.
+
+
+
+Você também pode ativar o TLSv1,2 no Windows 2008 R2.

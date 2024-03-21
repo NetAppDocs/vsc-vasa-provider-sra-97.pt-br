@@ -1,0 +1,32 @@
+---
+permalink: deploy/concept-configure-high-availability-for-virtual-appliance-for-vsc-vasa-provider-and-sra.html 
+sidebar: sidebar 
+keywords: configuring, high, availability, virtual, appliance, vsc, vasa, provider, sra, 
+summary: 'O dispositivo virtual para Virtual Storage Console (VSC), Fornecedor VASA e adaptador de replicação de armazenamento (SRA) suporta uma configuração (HA) para ajudar a fornecer funcionalidade ininterrupta do VSC, Fornecedor VASA e SRA durante a falha.' 
+---
+= Configure a alta disponibilidade para o dispositivo virtual para VSC, provedor VASA e SRA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O dispositivo virtual para Virtual Storage Console (VSC), Fornecedor VASA e adaptador de replicação de armazenamento (SRA) suporta uma configuração (HA) para ajudar a fornecer funcionalidade ininterrupta do VSC, Fornecedor VASA e SRA durante a falha.
+
+O dispositivo virtual para VSC, provedor VASA e SRA depende do recurso VMware vSphere (HA) e do recurso vSphere Fault Tolerance (FT) para fornecer o . A solução (HA) proporciona recuperação rápida de interrupções causadas por:
+
+* Falha do host
+* Falha de rede
+* Falha da máquina virtual (falha do sistema operacional convidado)
+* Falha de aplicativo (VSC, provedor VASA e SRA)
+
+
+Nenhuma configuração adicional é necessária no dispositivo virtual para fornecer o . Somente os hosts do vCenter Server e do ESXi devem ser configurados com o recurso VMware vSphere HA ou o recurso vSphere FT com base em seus requisitos. Tanto a HA quanto a FT exigem hosts em cluster junto com storage compartilhado. FT tem requisitos e limitações adicionais.
+
+Além da solução VMware vSphere HA e da solução vSphere FT, o dispositivo virtual também ajuda a manter os serviços VSC, VASA Provider e SRA funcionando sempre. O processo de vigilância do dispositivo virtual monitora periodicamente todos os três serviços e os reinicia automaticamente quando qualquer tipo de falha é detetada. Isso ajuda a evitar falhas de aplicativos.
+
+[NOTE]
+====
+O vCenter HA não é compatível com o dispositivo virtual para VSC, provedor VASA e SRA.
+
+====

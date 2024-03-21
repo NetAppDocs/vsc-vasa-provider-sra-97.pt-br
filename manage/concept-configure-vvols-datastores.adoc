@@ -1,0 +1,71 @@
+---
+permalink: manage/concept-configure-vvols-datastores.html 
+sidebar: sidebar 
+keywords: configuring, vvols, datastores, virtual, volumes 
+summary: 'Você pode usar o provedor VASA para ONTAP para criar e gerenciar volumes virtuais VMware (vVols). Você pode provisionar, editar, montar e excluir um datastore vVols. Você também pode adicionar storage ao armazenamento de dados vVols ou remover o armazenamento do armazenamento de dados vVols para oferecer maior flexibilidade. Você pode provisionar e gerenciar cada máquina virtual e o VMDK relacionado.' 
+---
+= Configurar armazenamentos de dados vVols
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode usar o provedor VASA para ONTAP para criar e gerenciar volumes virtuais VMware (vVols). Você pode provisionar, editar, montar e excluir um datastore vVols. Você também pode adicionar storage ao armazenamento de dados vVols ou remover o armazenamento do armazenamento de dados vVols para oferecer maior flexibilidade. Você pode provisionar e gerenciar cada máquina virtual e o VMDK relacionado.
+
+Um datastore vVols consiste em um ou mais volumes FlexVol dentro de um contentor de armazenamento (também chamado de "armazenamento de backup"). Uma máquina virtual pode ser espalhada por um datastore vVols ou vários datastores vVols.
+
+Embora você possa criar um armazenamento de dados vVols que tenha vários volumes FlexVol, todos os volumes FlexVol no contêiner de storage devem usar o mesmo protocolo (NFS, iSCSI ou FCP) e as mesmas máquinas virtuais de storage (SVMs).
+
+Você não precisa de conhecimento detalhado do storage subjacente. Por exemplo, você não precisa identificar um FlexVol volume específico para conter o armazenamento. Depois de adicionar volumes do FlexVol ao datastore vVols, o contêiner de storage gerencia os requisitos de storage e evita situações durante o provisionamento de VM em que o VMsão provisionados para um volume de backup sem capacidade.
+
+[NOTE]
+====
+É uma boa prática incluir vários volumes FlexVol em um armazenamento de dados vVols para obter desempenho e flexibilidade. Como os volumes do FlexVol têm restrições de contagem de LUN que limitam o número de máquinas virtuais, incluindo vários volumes do FlexVol, você pode armazenar mais máquinas virtuais no armazenamento de dados do vVols.
+
+====
+Como parte do processo de configuração, você deve especificar um perfil de capacidade de armazenamento para o datastore vVols que você está criando. Você pode selecionar um ou mais perfis de capacidade de armazenamento do provedor VASA para um datastore vVols. Você também pode especificar um perfil de capacidade de storage padrão para todos os datastores vVols criados automaticamente nesse contêiner de storage.
+
+O VASA Provider cria diferentes tipos de vVols durante o provisionamento de máquina virtual ou a criação do VMDK, conforme necessário.
+
+* *Config*
++
+O VMware vSphere usa esse datastore vVols para armazenar informações de configuração.
+
++
+Em implementações de SAN (bloco), o armazenamento é um LUN de 4 GB.
+
++
+Em uma implementação NFS, este é um diretório contendo arquivos de configuração da VM, como o arquivo vmx e ponteiros para outros datastores vVols.
+
+* *Dados*
++
+Este vVols contém informações do sistema operacional e arquivos de usuário.
+
++
+Em implementações SAN, este é um LUN que é o tamanho do disco virtual.
+
++
+Em uma implementação NFS, este é um arquivo que é o tamanho do disco virtual.
+
+* *Troca*
++
+Este vVols é criado quando a máquina virtual é ligada e é excluído quando a máquina virtual é desligada.
+
++
+Em implementações SAN, este é um LUN que é o tamanho da memória virtual.
+
++
+Em uma implementação NFS, este é um arquivo que é o tamanho da memória virtual.
+
+* *Memória*
++
+Este vVols é criado se a opção instantâneos de memória estiver selecionada ao criar snapshot de VM.
+
++
+Em implementações SAN, este é um LUN que é o tamanho da memória virtual.
+
++
+Em uma implementação NFS, este é um arquivo que é o tamanho da memória virtual.
+
+

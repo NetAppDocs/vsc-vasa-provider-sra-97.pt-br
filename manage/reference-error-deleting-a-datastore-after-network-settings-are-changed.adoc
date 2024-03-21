@@ -1,0 +1,47 @@
+---
+permalink: manage/reference-error-deleting-a-datastore-after-network-settings-are-changed.html 
+sidebar: sidebar 
+keywords: delete, datastore,troubleshooting errors 
+summary: Erro ao excluir um datastore após as configurações de rede serem alteradas 
+---
+= Erro ao excluir um datastore após as configurações de rede serem alteradas
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+
+
+== Problema
+
+Depois de alterar o endereço IP do dispositivo virtual para VSC, Fornecedor VASA e SRA, é apresentado um erro ao utilizar a interface VSC para executar determinadas operações. Por exemplo, excluindo um datastore ou tentando acessar o servidor do provedor VASA no host ESXi.
+
+
+
+== Causa
+
+O vCenter Server não usa o endereço IP atualizado e continua a usar o endereço IP antigo para fazer chamadas para o provedor VASA.
+
+
+
+== Ação corretiva
+
+Quando o endereço IP do dispositivo virtual para VSC, VSA Provider e SRA mudar, você deve executar o seguinte:
+
+. Desmarque o Registro do VSC do vCenter Server.
+.  `https://<vcenter_ip>/mob`Acesso .
+. Clique em menu:conteúdo[Gerenciador de extensão > Anular Registro de extensão > Anular Registro de todos com.NetApp.Extensions].
+. Faça login no vCenter Server como root usando o putty.
+. Mude para o diretório vSphere-client-Serenity usando: `cd /etc/vmware/vsphere-client/vc-packages/vsphere-client-serenity`.
+. Pare o vSphere Client: Service usando `vsphere-client stop`o .
+. Remova os diretórios que contêm as extensões da IU: `rm -rf com.netapp*`
+. Inicie o vSphere Client: Service usando `vsphere-client start`o .
++
+Essa operação pode levar vários minutos para que o vSphere Client seja reiniciado e inicializado corretamente.
+
+. Mude para o diretório vSphere-ui Serenity usando: `/etc/vmware/vsphere-ui/vc-packages/vsphere-client-serenity/`.
+. Pare a IU do vSphere: Serviço usando `vsphere-ui stop`o .
+. Remova os diretórios que contêm as extensões da IU: `rm -rf com.netapp*`
+. Inicie a IU do vSphere usando: `service-control --start vsphere-ui`.
+

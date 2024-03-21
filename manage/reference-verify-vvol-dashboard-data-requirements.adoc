@@ -1,0 +1,49 @@
+---
+permalink: manage/reference-verify-vvol-dashboard-data-requirements.html 
+sidebar: sidebar 
+keywords: vVol, dashboard, data, requirements, 
+summary: 'Você deve verificar alguns requisitos importantes do painel do vVol para exibir detalhes dinâmicos dos datastores e máquinas virtuais do VMware Virtual volumes (vVols).' 
+---
+= Requisitos de dados do painel da VVol
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você deve verificar alguns requisitos importantes do painel do vVol para exibir detalhes dinâmicos dos datastores e máquinas virtuais do VMware Virtual volumes (vVols).
+
+A tabela a seguir apresenta uma visão geral do que você deve verificar se o painel da evolução não exibe as métricas de desempenho para os datastores SAN vVols provisionados e máquinas virtuais.
+
+[cols="1a,1a"]
+|===
+| Considerações | Descrição 
+
+
+ a| 
+Implantação pela primeira vez dos Serviços de API da OnCommand
+ a| 
+* Se você estiver tendo clusters do ONTAP 9,6 ou anterior, use os Serviços de API do OnCommand 2,1 ou posterior.
++
+Você não precisa que os Serviços de API da OnCommand sejam registrados no provedor VASA se você estiver usando o ONTAP 9.7 e posterior.
+
+* Você deve ter seguido as instruções de instalação fornecidas no _Guia de Instalação e Configuração dos Serviços de API da OnCommand_ depois de baixar e instalar os Serviços de API da OnCommand no site de suporte da NetApp.
+* Cada instância do provedor VASA deve ter uma instância de Serviços de API OnCommand dedicada.
++
+Os Serviços de API do OnCommand não devem ser compartilhados entre várias instâncias do provedor VASA ou vCenter Servers.
+
+* Os Serviços de API da OnCommand estão em execução e acessíveis.
+
+
+
+
+ a| 
+Sistema de storage
+ a| 
+* Você está usando o ONTAP 9.3 ou posterior.
+* Você está usando as credenciais apropriadas para o sistema de storage.
+* Seu sistema de storage está ativo e acessível.
+* A máquina virtual selecionada deve estar usando pelo menos um datastore vVols e as operações de e/S estão sendo executadas no disco da máquina virtual.
+
+
+|===

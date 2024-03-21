@@ -1,0 +1,46 @@
+---
+permalink: manage/task-monitor-datastores-using-the-traditional-dashboard.html 
+sidebar: sidebar 
+keywords: monitoring, datastores, virtual, machines, using, the, traditional, dashboard, 
+summary: Você pode monitorar os armazenamentos de dados tradicionais e as máquinas virtuais usando o painel tradicional do dispositivo virtual para o Virtual Storage Console, o provedor VASA e o adaptador de replicação de armazenamento. Os dados do dashboard permitem analisar o uso do armazenamento de dados e tomar medidas corretivas para evitar que as máquinas virtuais sejam executadas em restrições relacionadas ao espaço. 
+---
+= Monitore armazenamentos de dados e máquinas virtuais usando o painel tradicional
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode monitorar os armazenamentos de dados tradicionais e as máquinas virtuais usando o painel tradicional do dispositivo virtual para o Virtual Storage Console, o provedor VASA e o adaptador de replicação de armazenamento. Os dados do dashboard permitem analisar o uso do armazenamento de dados e tomar medidas corretivas para evitar que as máquinas virtuais sejam executadas em restrições relacionadas ao espaço.
+
+.Antes de começar
+Você deve selecionar a opção *Ativar controle de e/S de armazenamento e coleta de estatísticas* ou *Desativar controle de e/S de armazenamento, mas habilitar coleção de estatísticas* na caixa de diálogo Configurar controle de e/S de armazenamento. Você pode ativar o Controle de e/S de storage somente se tiver a licença Enterprise Plus da VMware.
+
+https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.resmgmt.doc/GUID-BB5D9BAB-9E0E-4204-A76A-54634CD8AD51.html["Documentação do VMware vSphere: Ative o controle de e/S de armazenamento"^]
+
+.Sobre esta tarefa
+O painel do VSC exibe as métricas de IOPS, espaço utilizado, latência e capacidade comprometida obtidas do vCenter Server. O ONTAP fornece métricas de economia de espaço de volume para o painel do VSC. Esses parâmetros de desempenho permitem identificar gargalos de desempenho no ambiente virtual e tomar medidas corretivas para resolver os problemas.
+
+O dashboard tradicional do dispositivo virtual para VSC, provedor VASA e SRA permite que você visualize datastores NFS ou armazenamentos de dados VMFS. Você pode clicar em um datastore para navegar até a visualização de detalhes do datastore fornecida pela instância do vCenter Server para exibir e corrigir quaisquer problemas com os datastores no vCenter Server.
+
+.Passos
+. Na página inicial do vSphere Client, clique em *Virtual Storage Console*.
+. Selecione o vCenter Server necessário usando o menu suspenso *vCenter Server* para exibir os datastores.
+. Clique em *Painel tradicional*.
++
+O portlet *datastores* fornece os seguintes detalhes:
+
++
+** O número de datastores tradicionais, juntamente com suas métricas de desempenho que são gerenciadas pelo VSC na instância do vCenter Server
+** Os cinco principais armazenamentos de dados com base nos parâmetros de desempenho e uso de recursos que podem ser modificados, se necessário, você pode alterar a listagem dos armazenamentos de dados com base no espaço utilizado, IOPS ou latência e na ordem necessária.
+
+
++
+O portlet *Virtual Machines* fornece os seguintes detalhes:
+
++
+** Número de máquinas virtuais que usam datastores NetApp no vCenter Server
+** As cinco principais máquinas virtuais baseadas na capacidade comprometida, na latência e no tempo de atividade
+
+
+

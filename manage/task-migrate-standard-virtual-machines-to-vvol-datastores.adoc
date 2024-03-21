@@ -1,0 +1,27 @@
+---
+permalink: manage/task-migrate-standard-virtual-machines-to-vvol-datastores.html 
+sidebar: sidebar 
+keywords: migrate, traditional, virtual, machines, datastores, 
+summary: 'É possível migrar máquinas virtuais de datastores tradicionais para armazenamentos de dados de volumes virtuais (vVols) para aproveitar o gerenciamento de VM baseado em políticas e outros recursos do vVols. Os datastores vVols permitem que você atenda a requisitos maiores de workload.' 
+---
+= Migre máquinas virtuais tradicionais para armazenamentos de dados vVols
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+É possível migrar máquinas virtuais de datastores tradicionais para armazenamentos de dados de volumes virtuais (vVols) para aproveitar o gerenciamento de VM baseado em políticas e outros recursos do vVols. Os datastores vVols permitem que você atenda a requisitos maiores de workload.
+
+.Antes de começar
+Você deve ter garantido que o provedor VASA não está sendo executado em nenhuma das máquinas virtuais que você planeja migrar. Se você migrar uma máquina virtual que esteja executando o VASA Provider para um datastore vVols, não será possível executar nenhuma operação de gerenciamento, incluindo a ativação das máquinas virtuais que estão nos datastores vVols.
+
+.Sobre esta tarefa
+Quando você migra de um datastore tradicional para um datastore VVol, o vCenter Server usa descarregamentos das APIs do vStorage para Array Integration (VAAI) ao mover dados de datastores VMFS, mas não de um arquivo VMDK do NFS. As descargas VAAI normalmente reduzem a carga no host.
+
+.Passos
+. Clique com o botão direito do rato na máquina virtual que pretende migrar e, em seguida, clique em *Migrate*.
+. Selecione *Change storage only* (alterar somente armazenamento) e clique em *Next* (seguinte).
+. Selecione um formato de disco virtual, uma Política de armazenamento de VM e um datastore da VVol que corresponda aos recursos do datastore que você está migrando e clique em *Avançar*.
+. Revise as configurações e clique em *Finish*.
+

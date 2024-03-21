@@ -1,0 +1,44 @@
+---
+permalink: manage/task-pair-protected-and-recovery-sites.html 
+sidebar: sidebar 
+keywords: pairing, protected, recovery, sites, 
+summary: 'Você deve emparelhar os sites protegidos e de recuperação criados usando o vSphere Client para habilitar o Storage Replication Adapter (SRA) para descobrir os sistemas de armazenamento.' 
+---
+= Emparelhe locais protegidos e de recuperação
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você deve emparelhar os sites protegidos e de recuperação criados usando o vSphere Client para habilitar o Storage Replication Adapter (SRA) para descobrir os sistemas de armazenamento.
+
+.Antes de começar
+* Você deve ter instalado o Site Recovery Manager (SRM) nos sites protegidos e de recuperação.
+* Você deve ter instalado o SRA nos sites protegidos e de recuperação.
+
+
+.Sobre esta tarefa
+As configurações de fan-out do SnapMirror são aquelas em que um volume de origem é replicado para dois destinos diferentes. Estes criam um problema durante a recuperação quando o SRM precisa recuperar a máquina virtual do destino.
+
+[NOTE]
+====
+O adaptador de replicação de armazenamento (SRA) não suporta configurações SnapMirror de fan-out.
+
+====
+.Passos
+. Clique duas vezes em *Site Recovery* na página inicial do vSphere Client e clique em *Sites*.
+. Clique em menu:objetos[ações > Emparelhar sites].
+. Na caixa de diálogo *Emparelhar servidores do Gestor de recuperação de Site*, introduza o endereço do controlador de Serviços de Plataforma do site protegido e, em seguida, clique em *seguinte*.
+. Na seção *Select vCenter Server*, faça o seguinte:
++
+.. Verifique se o vCenter Server do site protegido aparece como um candidato correspondente para emparelhar.
+.. Insira as credenciais administrativas SSO e clique em *Finish*.
+
+
+. Se solicitado, clique em *Sim* para aceitar os certificados de segurança.
+
+
+.Resultados
+Os locais protegidos e de recuperação aparecerão na caixa de diálogo objetos.

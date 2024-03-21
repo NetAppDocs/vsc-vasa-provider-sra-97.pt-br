@@ -1,0 +1,48 @@
+---
+permalink: deploy/task-register-oncommand-api-services-with-the-virtual-appliance-for-vsc-vasa-provider-and-sra.html 
+sidebar: sidebar 
+keywords: virtual, volume, datastores, registering, virtual, appliance, vsc, vasa, provider, sra, 
+summary: 'Se você estiver usando o ONTAP 9.6 ou anterior, o painel da vVol poderá exibir os detalhes dos armazenamentos de dados e máquinas virtuais do VMware Virtual volumes (vVols) somente se você tiver se registrado no provedor VASA para obter dados para os relatórios VM e datastore do vVols.' 
+---
+= Registre-se no dispositivo virtual para VSC, VSA Provider e SRA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se você estiver usando o ONTAP 9.6 ou anterior, o painel da vVol poderá exibir os detalhes dos armazenamentos de dados e máquinas virtuais do VMware Virtual volumes (vVols) somente se você tiver se registrado no provedor VASA para obter dados para os relatórios VM e datastore do vVols.
+
+.Antes de começar
+Você deve ter baixado o 2,1 ou posterior do .
+
+[NOTE]
+====
+O painel da vVol exibe métricas de desempenho somente quando os datastores e máquinas virtuais SAN vVols são configurados usando o ONTAP 9.3 ou posterior.
+
+====
+.Passos
+. Na página Virtual Storage Console (VSC) *Home*, clique em *Configurações*.
+. Clique em *Manage Extension* (Gerenciar extensão) na guia *Administrative Settings* (Configurações administrativas).
+. Use o controle deslizante *Register OnCommand API Services* para ativar o .
+. Introduza o endereço IP, a porta de serviço e as credenciais do .
++
+Você também pode usar a caixa de diálogo *Manage VASA Provider Extensions* para as seguintes modificações:
+
++
+** Para atualizar o Registro quando houver qualquer alteração nas credenciais.
+** Para anular o registo quando já não necessita do painel da VVol.
++
+Você deve desmarcar a caixa de seleção *Register OnCommand API Services* para remover o Registro para o provedor VASA.
+
+
+
+. Clique em *aplicar*.
++
+O painel da VVol exibe as métricas para os armazenamentos de dados ONTAP 9.6 ou anteriores da SAN evolução somente após a conclusão do Registro.
+
+
+
+*Informações relacionadas*
+
+https://mysupport.netapp.com/site/["Suporte à NetApp"^]

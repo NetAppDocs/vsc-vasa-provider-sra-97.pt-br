@@ -1,0 +1,49 @@
+---
+permalink: deploy/task-refresh-the-storage-system-display.html 
+sidebar: sidebar 
+keywords: refreshing, the, storage, system, display, 
+summary: 'Você pode usar o recurso de atualização fornecido pelo Virtual Storage Console para VMware vSphere para atualizar as informações sobre sistemas de armazenamento e forçar o Virtual Storage Console (VSC) a descobrir sistemas de armazenamento.' 
+---
+= Atualize a apresentação do sistema de armazenamento
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode usar o recurso de atualização fornecido pelo Virtual Storage Console para VMware vSphere para atualizar as informações sobre sistemas de armazenamento e forçar o Virtual Storage Console (VSC) a descobrir sistemas de armazenamento.
+
+.Sobre esta tarefa
+A opção "refresco" é útil se você alterou as credenciais padrão para os sistemas de armazenamento após receber um erro de autenticação. Você sempre deve executar uma operação de atualização se você alterou as credenciais do sistema de armazenamento depois que o sistema de armazenamento relatou um ""Status de Falha de autenticação"". Durante a operação de atualização, o VSC tenta se conetar ao sistema de armazenamento usando as novas credenciais.
+
+Dependendo da configuração do sistema, essa tarefa pode levar muito tempo para ser concluída.
+
+.Passos
+. Na página VMware vSphere Client *Home*, clique em *Storage Systems*.
+. Inicie a atualização:
++
+[cols="1a,1a"]
+|===
+| Se esta localização é... | Clique em... 
+
+
+ a| 
+Console de armazenamento virtual
+ a| 
+O ícone *REDESCOBRIR TUDO*.
+
+
+
+ a| 
+Data center
+ a| 
+Clique com o botão direito do rato no centro de dados e, em seguida, clique no menu:NetApp VSC[Atualizar dados de anfitrião e armazenamento].
+
+|===
+. Na caixa de diálogo *Atualizar dados do host e do armazenamento*, clique em *OK*.
++
+A descoberta pode levar alguns minutos, dependendo do número de hosts e sistemas de storage em seu data center. Esta operação de descoberta funciona em segundo plano.
+
+. Clique em *OK* na caixa de diálogo *sucesso*.
+

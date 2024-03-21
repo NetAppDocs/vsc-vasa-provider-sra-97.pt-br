@@ -1,0 +1,35 @@
+---
+permalink: manage/task-configure-placeholder-datastores.html 
+sidebar: sidebar 
+keywords: configuring, placeholder, datastores, 
+summary: 'Você deve configurar um datastore de espaço reservado para manter um lugar no inventário do vCenter no local de recuperação da máquina virtual protegida (VM). O datastore de espaço reservado não precisa ser grande, pois as VMs de espaço reservado são pequenas e usam apenas algumas centenas ou menos kilobytes.' 
+---
+= Configurar datastores de espaço reservado
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você deve configurar um datastore de espaço reservado para manter um lugar no inventário do vCenter no local de recuperação da máquina virtual protegida (VM). O datastore de espaço reservado não precisa ser grande, pois as VMs de espaço reservado são pequenas e usam apenas algumas centenas ou menos kilobytes.
+
+.Antes de começar
+* Você deve ter conetado os sites protegidos e de recuperação.
+* Você deve ter configurado seus mapeamentos de recursos.
+
+
+.Passos
+. Faça login no seu vCenter Server e clique no menu:Site Recovery[Sites].
+. Selecione seu site protegido e clique em *Gerenciar*.
+. Na guia Gerenciar, selecione *datastores de espaço*.
+. Clique no image:../media/new-placeholder-datastore.gif[""] ícone para criar um novo datastore de espaço reservado.
+. Selecione o datastore apropriado e clique em *OK*.
++
+[NOTE]
+====
+Os datastores de espaço reservado podem ser locais ou remotos e não devem ser replicados.
+
+====
+. Repita as etapas de 3 a 5 para configurar um datastore de espaço reservado para o site de recuperação.
+

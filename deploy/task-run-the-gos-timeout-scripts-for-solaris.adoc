@@ -1,0 +1,31 @@
+---
+permalink: deploy/task-run-the-gos-timeout-scripts-for-solaris.html 
+sidebar: sidebar 
+keywords: setting, timeout, values, solaris, guest, operating, systems, 
+summary: 'Os scripts de tempo limite do sistema operacional convidado (os) definem as configurações de tempo limite de e/S SCSI para Solaris 10. Você pode especificar um tempo limite de 60 segundos ou um tempo limite de 190 segundos.' 
+---
+= Definir valores de tempo limite para os sistemas operacionais convidados Solaris
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Os scripts de tempo limite do sistema operacional convidado (os) definem as configurações de tempo limite de e/S SCSI para Solaris 10. Você pode especificar um tempo limite de 60 segundos ou um tempo limite de 190 segundos.
+
+.Antes de começar
+Você deve ter montado a imagem ISO que contém o script Solaris.
+
+.Passos
+. Acesse o console da máquina virtual Solaris e faça login em uma conta com o root Privileges.
+. Execute `solaris_gos_timeout-install.sh` o script.
++
+Para o Solaris 10, é apresentada uma mensagem semelhante à seguinte:
+
++
+[listing]
+----
+Setting I/O Timeout for /dev/s–a - SUCCESS!
+----
+. Desmonte a imagem ISO.
+

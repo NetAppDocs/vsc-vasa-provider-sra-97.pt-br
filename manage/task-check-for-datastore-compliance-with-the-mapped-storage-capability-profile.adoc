@@ -1,0 +1,38 @@
+---
+permalink: manage/task-check-for-datastore-compliance-with-the-mapped-storage-capability-profile.html 
+sidebar: sidebar 
+keywords: verifying, datastore, compliance, with, the, mapped, storage, capability, profile, 
+summary: Você pode verificar rapidamente se seus datastores estão em conformidade com os perfis de capacidade de armazenamento mapeados para os datastores. 
+---
+= Verifique a conformidade do datastore com o perfil de capacidade de armazenamento mapeado
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode verificar rapidamente se seus datastores estão em conformidade com os perfis de capacidade de armazenamento mapeados para os datastores.
+
+.Antes de começar
+* Você deve ter registrado sua instância do provedor VASA no Virtual Storage Console para VMware vSphere (VSC).
+* O VSC deve ter descoberto seu armazenamento.
+
+
+.Passos
+. Na página VSC *Home*, clique em *Mapeamento de armazenamento*.
+. Revise as informações na coluna *Status de conformidade* para identificar armazenamentos de dados não compatíveis e revise os alertas por motivo de não conformidade.
++
+[NOTE]
+====
+Quando você clica no botão *VERIFICAÇÃO DE CONFORMIDADE*, o VSC executa uma operação de redescoberta para todo o armazenamento, o que pode levar alguns minutos.
+
+====
++
+Se um datastore não for mais compatível com seu perfil, a coluna *Status de conformidade* exibirá um alerta indicando o motivo da não conformidade. Por exemplo, um perfil pode exigir compactação. Se essa configuração tiver sido alterada no storage, a compactação não será mais usada e o datastore não será compatível.
+
+
+
+.Depois de terminar
+Quando você descobre um datastore que não é compatível com seu perfil, você pode modificar as configurações no volume que suporta o datastore para tornar o datastore compatível ou atribuir um novo perfil ao datastore.
+
+Pode modificar as definições a partir da página *Perfil de capacidade de armazenamento*.

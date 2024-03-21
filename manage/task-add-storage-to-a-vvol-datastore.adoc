@@ -1,0 +1,82 @@
+---
+permalink: manage/task-add-storage-to-a-vvol-datastore.html 
+sidebar: sidebar 
+keywords: virtual, volume, datastores, adding, storage, to, a, vVols, datastore, 
+summary: 'Você pode aumentar o storage disponível usando o assistente Adicionar armazenamento para adicionar volumes do FlexVol a um armazenamento de dados existente do VMware Virtual volumes (vVols).' 
+---
+= Adicionar storage a um datastore vVols
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode aumentar o armazenamento disponível usando o assistente *Adicionar armazenamento* para adicionar volumes do FlexVol a um armazenamento de dados existente do VMware Virtual volumes (vVols).
+
+.Sobre esta tarefa
+Ao adicionar um FlexVol volume, você também tem a opção de alterar o perfil de funcionalidades de storage associado a esse volume. Você pode usar o recurso de geração automática do provedor VASA para criar um novo perfil para o volume ou atribuir um dos perfis existentes ao volume.
+
+[NOTE]
+====
+* Ao expandir um datastore vVols com recursos de replicação, você não pode criar novos volumes do FlexVol, mas pode selecionar somente volumes FlexVol pré-configurados na lista existente.
+* Ao clonar uma máquina virtual protegida implantada no datastore com a replicação do vVols falha devido a espaço insuficiente, você deve aumentar o tamanho do FlexVol volume.
+* Quando um datastore vVols é criado em um cluster AFF, não é possível expandir o datastore com outro FlexVol volume que tenha gerado automaticamente o perfil de capacidade de armazenamento.
++
+Você pode expandir o armazenamento de dados vVols com volumes do FlexVol que possuem perfis de funcionalidades de storage pré-criados.
+
+
+
+====
+.Passos
+. Na página vSphere Client *Home*, clique em *hosts and clusters*.
+. Clique com o botão direito do Mouse no datastore vVols e selecione menu:NetApp VSC[Expand Storage of vVol datastore].
+. Na página *Expand Storage of vVol datastore*, você pode adicionar um FlexVol volume existente ao datastore vVols ou criar um novo FlexVol volume para adicionar ao banco de dados.
++
+[cols="1a,1a"]
+|===
+| Se selecionar... | Execute o seguinte... 
+
+
+ a| 
+Selecione volumes
+ a| 
+.. Selecione os volumes FlexVol que você deseja adicionar ao datastore vVols.
+.. Na coluna *Perfis de capacidade de armazenamento*, use a lista suspensa para criar um novo perfil com base nos volumes FlexVol ou selecione um dos perfis existentes.
++
+O recurso de geração automática cria um perfil com base nos recursos de armazenamento associados a esse FlexVol volume. Por exemplo: Tipo de disco, alta disponibilidade, recuperação de desastres, recursos de desempenho e deduplicação.
+
+
+
+
+
+ a| 
+Crie novos volumes
+ a| 
+.. Insira o nome, o tamanho e o perfil de capacidade de armazenamento do FlexVol.
++
+Os agregados são selecionados pelo sistema com base no perfil de capacidade de storage selecionado.
+
+.. Selecione a opção *crescimento automático* e forneça o tamanho máximo.
+.. Clique em *ADD* para adicionar o FlexVol à lista de volumes.
+
+
+|===
++
+*Lembrete*: Todos os volumes do FlexVol em um datastore vVols devem ser da mesma máquina virtual de armazenamento (SVM, anteriormente conhecida como SVM).
+
++
+Depois de criar um FlexVol volume, você pode editá-lo clicando no botão *Modificar*. Você também pode excluí-lo.
+
+. Selecione um perfil de capacidade de armazenamento padrão a ser usado durante a criação da máquina virtual e, em seguida, clique em *Next* para rever o resumo do armazenamento adicionado ao armazenamento de dados vVols.
+. Clique em *Finish*.
++
+O assistente adiciona o armazenamento especificado ao armazenamento de dados vVols. Ele exibe uma mensagem de sucesso quando termina.
+
++
+[NOTE]
+====
+O assistente *Expand Storage of VVol datastore* manipula automaticamente quaisquer rescan de armazenamento ESXi ou quaisquer outras operações significativas que sejam necessárias. Como um armazenamento de dados vVols é uma entidade lógica controlada pelo provedor VASA, adicionar o FlexVol volume é a única coisa que você precisa fazer para aumentar a capacidade do seu contentor de armazenamento.
+
+====
+

@@ -1,0 +1,14 @@
+---
+permalink: manage/concept-virtual-storage-console-reports.html 
+sidebar: sidebar 
+keywords: understanding, virtual, storage, console, reports, 
+summary: 'Você pode usar o menu relatórios do Virtual Storage Console (VSC) para exibir relatórios predefinidos para todos os datastores gerenciados por uma instância do VSC selecionada em um vCenter Server específico. Você pode executar operações como classificação e exportação de relatórios.' 
+---
+= Entenda os relatórios do Virtual Storage Console
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode usar o menu VSC (Virtual Storage Console) *Reports* para exibir relatórios predefinidos para todos os datastores gerenciados por uma instância do VSC selecionada em um vCenter Server específico. Você pode executar operações como classificação e exportação de relatórios.

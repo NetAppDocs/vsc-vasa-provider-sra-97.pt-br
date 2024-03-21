@@ -1,0 +1,40 @@
+---
+permalink: deploy/concept-guidelines-for-using-vsc-standard-roles.html 
+sidebar: sidebar 
+keywords: guidelines, using, VSC standard roles 
+summary: Quando você trabalha com funções padrão do Virtual Storage Console para VMware vSphere, há certas diretrizes que você deve seguir. 
+---
+= Diretrizes para o uso de funções padrão do VSC
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Quando você trabalha com funções padrão do Virtual Storage Console para VMware vSphere, há certas diretrizes que você deve seguir.
+
+Você não deve modificar diretamente as funções padrão. Se o fizer, o VSC substituirá as alterações sempre que atualizar o VSC. O instalador atualiza as definições de função padrão cada vez que você atualiza o VSC. Isso garante que as funções sejam atuais para sua versão do VSC, bem como para todas as versões com suporte do vCenter Server.
+
+No entanto, você pode usar as funções padrão para criar funções adaptadas ao seu ambiente. Para fazer isso, você deve copiar a função padrão do VSC e, em seguida, editar a função copiada. Ao criar uma nova função, você pode manter essa função mesmo quando você reiniciar ou atualizar o serviço VSC Windows.
+
+Algumas das maneiras pelas quais você pode usar as funções padrão do VSC incluem o seguinte:
+
+* Use as funções VSC padrão para todas as tarefas VSC.
++
+Nesse cenário, as funções padrão fornecem todas as Privileges que um usuário precisa para executar as tarefas do VSC.
+
+* Combine funções para expandir as tarefas que um usuário pode executar.
++
+Se as funções padrão do VSC oferecerem muita granularidade para o seu ambiente, você poderá expandir as funções criando grupos de nível mais alto que contenham várias funções.
+
++
+Se um usuário precisar executar outras tarefas que não sejam do VSC que exijam o vCenter Server Privileges nativo adicional, você poderá criar uma função que forneça esses Privileges e adicioná-los ao grupo também.
+
+* Crie papéis mais refinados.
++
+Se a sua empresa exigir que você implemente funções mais restritivas do que as funções VSC padrão, você poderá usar as funções VSC para criar novas funções.
+
++
+Nesse caso, você clonaria as funções VSC necessárias e editaria a função clonada para que ela tenha apenas o Privileges que seu usuário precisa.
+
+

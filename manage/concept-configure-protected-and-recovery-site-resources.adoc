@@ -1,0 +1,22 @@
+---
+permalink: manage/concept-configure-protected-and-recovery-site-resources.html 
+sidebar: sidebar 
+keywords: configuring, protected, and, recovery, site, resources, 
+summary: Você deve configurar seus mapeamentos de recursos como redes de VM, hosts ESXi e pastas em ambos os sites para habilitar o mapeamento de cada recurso do site protegido para o recurso apropriado no site de recuperação. 
+---
+= Configurar recursos do site protegidos e de recuperação
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você deve configurar seus mapeamentos de recursos como redes de VM, hosts ESXi e pastas em ambos os sites para habilitar o mapeamento de cada recurso do site protegido para o recurso apropriado no site de recuperação.
+
+Você deve concluir as seguintes configurações de recursos:
+
+* Mapeamentos de rede
+* Mapeamentos de pastas
+* Mapeamentos de recursos
+* Datastores de espaço reservado
+

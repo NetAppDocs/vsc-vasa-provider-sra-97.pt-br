@@ -1,0 +1,52 @@
+---
+permalink: deploy/concept-recommended-ontap-roles-when-using-vsc-for-vmware-vsphere.html 
+sidebar: sidebar 
+keywords: recommended, ontap, roles, when, using, vsc, vmware, vsphere, 
+summary: 'Você pode configurar várias funções recomendadas do ONTAP para trabalhar com o Console de storage virtual para VMware vSphere e o controle de acesso baseado em funções (RBAC). Essas funções contêm o ONTAP Privileges necessário para executar as operações de storage necessárias executadas pelas tarefas do VSC.' 
+---
+= Funções recomendadas do ONTAP ao usar o VSC para VMware vSphere
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode configurar várias funções recomendadas do ONTAP para trabalhar com o Console de storage virtual para VMware vSphere e o controle de acesso baseado em funções (RBAC). Essas funções contêm o ONTAP Privileges necessário para executar as operações de storage necessárias executadas pelas tarefas do VSC.
+
+Para criar novas funções de usuário, faça login como administrador em sistemas de storage que executam o ONTAP. Você pode criar funções do ONTAP usando uma das seguintes opções:
+
+* 9,7 ou posterior
++
+link:task-configure-user-role-and-privileges.html["Configurar funções de usuário e Privileges"]
+
+* Ferramenta Criador de Usuário RBAC para ONTAP (se estiver usando o ONTAP 9.6 ou anterior)
++
+https://community.netapp.com/t5/Virtualization-Articles-and-Resources/RBAC-User-Creator-tool-for-VSC-VASA-Provider-and-Storage-Replication-Adapter-7-0/ta-p/133203["Ferramenta de criação de usuário RBAC para VSC, provedor VASA e adaptador de replicação de armazenamento 7,0 para VMware vSphere"^]
+
+
+
+Cada função do ONTAP tem um nome de usuário e um par de senhas associados, que constituem as credenciais da função. Se você não fizer login usando essas credenciais, não poderá acessar as operações de storage associadas à função.
+
+Como medida de segurança, as funções ONTAP específicas do VSC são ordenadas hierarquicamente. Isso significa que a primeira função é a função mais restritiva e tem apenas os Privileges associados ao conjunto mais básico de operações de storage VSC. A próxima função inclui o seu próprio Privileges e todos os Privileges associados à função anterior. Cada função adicional é menos restritiva em relação às operações de storage compatíveis.
+
+Veja a seguir algumas das funções RBAC recomendadas do ONTAP ao usar o VSC. Depois de criar essas funções, você pode atribuir as funções aos usuários que precisam executar tarefas relacionadas ao storage, como o provisionamento de máquinas virtuais.
+
+. Detecção
++
+Essa função permite adicionar sistemas de storage.
+
+. Crie armazenamento
++
+Essa função permite que você crie armazenamento. Essa função também inclui todos os Privileges associados à função descoberta.
+
+. Modificar armazenamento
++
+Essa função permite modificar o armazenamento. Essa função também inclui todos os Privileges associados à função descoberta e à função criar armazenamento.
+
+. Destrua o armazenamento
++
+Esta função permite que você destrua o armazenamento. Essa função também inclui todos os Privileges associados à função descoberta, à função criar armazenamento e à função Modificar armazenamento.
+
+
+
+Se você estiver usando o provedor VASA para ONTAP, você também deve configurar uma função de gerenciamento baseado em políticas (PBM). Essa função permite gerenciar o storage usando políticas de storage. Essa função requer que você também configure a função "descoberta".

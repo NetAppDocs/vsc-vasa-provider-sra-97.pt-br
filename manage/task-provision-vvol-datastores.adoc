@@ -1,0 +1,118 @@
+---
+permalink: manage/task-provision-vvol-datastores.html 
+sidebar: sidebar 
+keywords: provisioning, vvols, datastores, 
+summary: Você pode provisionar um armazenamento de dados vVols usando o assistente de armazenamento de dados de provisão somente se o provedor VASA estiver habilitado em seu dispositivo virtual para VSC, provedor VASA e SRA. 
+---
+= Provisione armazenamentos de dados vVols
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode provisionar um datastore vVols usando o assistente *provision datastore* somente se o VASA Provider estiver habilitado em seu dispositivo virtual para VSC, VASA Provider e SRA.
+
+.Antes de começar
+* Você deve garantir que os detalhes da sub-rede de todas as redes às quais o ESXi hospedado está conetado sejam inseridos no `Kaminoprefs.xml`.
++
+Consulte *Ativar a montagem do datastore em diferentes sub-redes* seção em _VSC 9,7 Deployment and Setup Guide_.
+
+* Você deve configurar uma política de replicação semelhante e agendar nos datastores nos sites de origem e destino para que a replicação reversa seja bem-sucedida.
+
+
+.Sobre esta tarefa
+O menu *provision datastore* permite especificar um perfil de capacidade de armazenamento para o datastore, o que ajuda a especificar objetivos de nível de serviço (SLOs) consistentes e simplifica o processo de provisionamento. Você só pode especificar um perfil de capacidade de armazenamento se tiver ativado o provedor VASA.
+
+Os volumes do FlexVol que são usados como storage de backup são exibidos no painel da VVol somente se estiverem executando o ONTAP 9.5 ou posterior. Você não deve usar o assistente do vCenter Server *New datastore* para provisionar armazenamentos de dados vVols.
+
+* Você deve usar credenciais de cluster para criar armazenamentos de dados vVols.
++
+Você não pode usar credenciais SVM para criar armazenamentos de dados vVols.
+
+* O VASA Provider não suporta a clonagem de uma máquina virtual hospedada no datastore vVols de um protocolo para outro datastore com um protocolo diferente.
+* Você deve ter concluído o emparelhamento de cluster e o emparelhamento SVM nos locais de origem e destino.
+
+
+.Passos
+. Na página inicial do vSphere Client, clique em *hosts and clusters*.
+. No painel de navegação, selecione o data center no qual você deseja provisionar o datastore.
+. Especifique os hosts nos quais você deseja montar o datastore.
++
+[cols="1a,1a"]
+|===
+| Para tornar o datastore disponível para... | Faça isso... 
+
+
+ a| 
+Todos os hosts em um data center
+ a| 
+Clique com o botão direito do Mouse em um datacenter e selecione menu:NetApp VSC[provision datastore].
+
+
+
+ a| 
+Todos os hosts em um cluster
+ a| 
+Clique com o botão direito do Mouse em um cluster e selecione menu:NetApp VSC[provision datastore].
+
+
+
+ a| 
+Um único host
+ a| 
+Clique com o botão direito do Mouse em um host e selecione menu:NetApp VSC[provision datastore].
+
+|===
+. Preencha os campos na caixa de diálogo *novo datastore* para criar o datastore.
++
+A maioria dos campos na caixa de diálogo são auto-explicativos. A tabela a seguir descreve alguns dos campos para os quais você pode precisar de orientação.
+
++
+[cols="1a,1a"]
+|===
+| Secção | Descrição 
+
+
+ a| 
+Geral
+ a| 
+A seção *Geral* da caixa de diálogo *novo datastore* fornece opções para inserir o local, nome, descrição, tipo e protocolo para o novo datastore. O tipo de datastore vVols é usado para configurar um datastore vVols.
+
+[NOTE]
+====
+Se você estiver provisionando o armazenamento de dados iSCSI vVols para replicação do vVols, antes de criar o armazenamento de dados vVols no site de destino, será necessário executar a atualização do SnapMirror e a redescoberta do cluster.
+
+====
+
+
+ a| 
+Sistema de storage
+ a| 
+Esta seção permite que você selecione se deseja que o armazenamento de dados vVols tenha a replicação ativada ou desativada. Somente o perfil de replicação do tipo assíncrono é permitido para esta versão. Em seguida, você pode selecionar um ou mais perfis de capacidade de armazenamento listados. Os valores recomendados pelo sistema de *Storage system* e *Storage VM* são preenchidos automaticamente. Os valores recomendados são preenchidos apenas se estiverem emparelhados no ONTAP. Você pode modificar esses valores, se necessário.
+
+[NOTE]
+====
+Ao criar volumes do FlexVol no ONTAP, você deve garantir que os crie com os atributos que deseja selecionar no perfil de capacidade de armazenamento. Os volumes do FlexVol de proteção para leitura e gravação de dados devem ter atributos semelhantes.
+
+====
+Depois que os volumes do FlexVol forem criados e o SnapMirror for inicializado no ONTAP, você deverá executar uma redescoberta de armazenamento no VSC para poder ver os novos volumes.
+
+
+
+ a| 
+Atributos de storage
+ a| 
+Você deve selecionar a programação para SnapMirror e o FlexVol volume necessário na lista existente. Essa programação deve ser semelhante à selecionada na página políticas de armazenamento de VM. O usuário deve ter criado volumes FlexVol no ONTAP com SnapMirror listados. Você pode selecionar o perfil de capacidade de armazenamento padrão a ser usado para criar vVols usando a opção *Perfil de capacidade de armazenamento padrão*.
+
+|===
+. Na seção *Summary*, clique em *Finish*.
++
+Um grupo de replicação é criado no back-end quando um datastore vVols é configurado.
+
+
+
+*Informações relacionadas*
+
+xref:reference-verify-vvol-dashboard-data-requirements.adoc[Requisitos de dados do painel da VVol]

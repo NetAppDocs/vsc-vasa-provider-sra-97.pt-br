@@ -1,0 +1,20 @@
+---
+permalink: deploy/concept-vmware-high-availability-for-vcenter-server.html 
+sidebar: sidebar 
+keywords: vsc, vmware, vsphere, ha, 
+summary: 'Você pode configurar seu ambiente vSphere onde o dispositivo virtual para Virtual Storage Console (VSC), Fornecedor VASA e adaptador de replicação de armazenamento (SRA) está implantado para (HA). O recurso VMware HA oferece proteção contra failover contra falhas de hardware e falhas do sistema operacional em ambientes virtuais.' 
+---
+= VMware vSphere HA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode configurar seu ambiente vSphere onde o dispositivo virtual para Virtual Storage Console (VSC), Fornecedor VASA e adaptador de replicação de armazenamento (SRA) está implantado para (HA). O recurso VMware HA oferece proteção contra failover contra falhas de hardware e falhas do sistema operacional em ambientes virtuais.
+
+O recurso VMware HA monitora as máquinas virtuais para detetar falhas no sistema operacional e no hardware. Quando uma falha é detetada, o recurso VMware HA reinicia as máquinas virtuais nos outros servidores físicos no pool de recursos. A intervenção manual não é necessária quando é detetada uma falha do servidor.
+
+O procedimento para configurar o VMware HA depende da versão do vCenter Server. Por exemplo, você pode usar o link de referência a seguir e selecionar a versão do vCenter Server necessária para exibir as etapas para configurar o VMware HA.
+
+https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.avail.doc/GUID-5432CA24-14F1-44E3-87FB-61D937831CF6.html["Documentação do VMware vSphere: Criando e usando clusters de HA do vSphere"^]

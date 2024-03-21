@@ -1,0 +1,34 @@
+---
+permalink: deploy/concept-configure-your-storage-system-environment.html 
+sidebar: sidebar 
+keywords: configuring, virtual, storage, console, vmware, vsphere, storage, system, environment, 
+summary: 'O Virtual Storage Console para VMware vSphere fornece um único mecanismo para descobrir sistemas de armazenamento e definir as credenciais de armazenamento. As credenciais fornecem as permissões do ONTAP necessárias para permitir que os usuários do console de storage virtual (VSC) executem tarefas usando os sistemas de storage.' 
+---
+= Configure o Virtual Storage Console para o ambiente do sistema de storage VMware vSphere
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O Virtual Storage Console para VMware vSphere fornece um único mecanismo para descobrir sistemas de armazenamento e definir as credenciais de armazenamento. As credenciais fornecem as permissões do ONTAP necessárias para permitir que os usuários do console de storage virtual (VSC) executem tarefas usando os sistemas de storage.
+
+Antes que o VSC possa exibir e gerenciar os recursos de storage, o VSC precisa descobrir os sistemas de storage. Como parte do processo de descoberta, você precisa fornecer as credenciais ONTAP para seus sistemas de storage. Estas são as Privileges (ou funções) associadas ao nome de usuário e ao par de senhas que são atribuídas a cada sistema de armazenamento. Esses pares de nome de usuário e senha usam o controle de acesso baseado em função (RBAC) do ONTAP e devem ser configurados a partir do ONTAP. Você não pode alterar essas credenciais de dentro do VSC. Você pode definir funções RBAC do ONTAP usando o .
+
+[NOTE]
+====
+Se você fizer login como administrador, terá automaticamente todo o Privileges para esse sistema de storage.
+
+====
+Quando você adiciona um sistema de armazenamento ao VSC, você deve fornecer um endereço IP para o sistema de armazenamento e o nome de usuário e par de senha associados a esse sistema. Você pode configurar as credenciais padrão que o VSC usará durante o processo de descoberta do sistema de storage ou inserir manualmente as credenciais quando o sistema de storage for descoberto. Os detalhes do sistema de storage adicionado ao VSC são enviados automaticamente para as extensões que você ativa na implantação. Não é necessário adicionar armazenamento manualmente ao fornecedor VASA e ao adaptador de replicação de armazenamento (SRA). O VSC e o SRA oferecem suporte à adição de credenciais no nível e nível do cluster. O VASA Provider suporta apenas credenciais em nível de cluster para adicionar sistemas de armazenamento.
+
+Se o seu ambiente incluir várias instâncias do vCenter Server, quando você adiciona um sistema de armazenamento ao VSC na página sistemas de armazenamento, a caixa de diálogo Adicionar sistema de armazenamento exibe uma caixa do vCenter Server onde você pode especificar a qual instância do vCenter Server o sistema de armazenamento deve ser adicionado. Se você adicionar um sistema de armazenamento clicando com o botão direito do Mouse em um nome de data center, não terá a opção de especificar uma instância do vCenter Server porque o servidor já está associado a esse data center.
+
+A descoberta acontece de uma das seguintes maneiras. Em cada caso, você precisa fornecer credenciais para qualquer sistema de storage recém-descoberto.
+
+* Quando o serviço VSC é iniciado, o VSC inicia seu processo automático de descoberta de fundo.
+* Você pode clicar no botão *REREDESCOBRIR tudo* na página sistemas de armazenamento ou em um host ou datacenter para selecioná-lo no menu *ações* (menu:ações[NetApp VSC > Atualizar dados do host e do armazenamento]). Você também pode clicar em *DISCOVER* na guia primeiros passos da seção Visão geral.
+
+
+Todos os recursos do VSC exigem permissões específicas para executar tarefas. Você pode limitar o que os usuários podem fazer com base nas credenciais associadas à função ONTAP. Todos os usuários que têm o mesmo nome de usuário e par de senhas do sistema de armazenamento compartilham o mesmo conjunto de credenciais do sistema de armazenamento e podem executar as mesmas operações.

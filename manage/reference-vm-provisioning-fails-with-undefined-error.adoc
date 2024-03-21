@@ -1,0 +1,42 @@
+---
+permalink: manage/reference-vm-provision-fails-with-undefined-error.html 
+sidebar: sidebar 
+keywords: virtual, machine, provisioning, fails, with, an, undefined, error, 
+summary: Operações de provisionamento de máquina virtual, como criar, clonar, ligar, desligar, suspender, migrar e atualizar o perfil de armazenamento de VM no datastore VVol, podem falhar com uma mensagem de erro genérica no gerenciador de tarefas que não indica se o problema está com o provedor VASA ou com a VMware. 
+---
+= A provisão de máquina virtual falha com um erro indefinido
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Operações de provisionamento de máquina virtual, como criar, clonar, ligar, desligar, suspender, migrar e atualizar o perfil de armazenamento de VM no datastore VVol, podem falhar com uma mensagem de erro genérica no gerenciador de tarefas que não indica se o problema está com o provedor VASA ou com a VMware.
+
+
+
+== Problema
+
+Você recebe mensagens de erro no gerenciador de tarefas, como `No suitable volume was found amongst the candidate volumes for the specified requirements.`
+
+
+
+== Causa
+
+O erro pode ocorrer devido a problemas com o armazenamento VMware, provedor VASA ou ONTAP. A mensagem de erro pode não especificar o motivo exato da falha. O problema também pode ser devido a grandes sistemas de storage com um grande número de máquinas virtuais de armazenamento (SVMs), volumes e LUNs no ambiente. As operações de descoberta periódica executadas em segundo plano nesses sistemas de armazenamento demoram tempo e podem causar o tempo limite das operações de provisionamento de máquina virtual se essas operações forem acionadas simultaneamente.
+
+
+
+== Ação corretiva
+
+. Verifique se o problema é com o armazenamento do fornecedor VASA ou do ONTAP examinando os `/opt/netapp/vpserver/logs/error.log` arquivos de log , `vvolvp.log` e . `zapi_error.log`
++
+** Se forem relatados erros `NaException com.netapp.offtap3.ontap.ApiFailedException: No suitable volume was found amongst the candidate volumes for the specified requirements. Details: Vvol Placement: Type: place Candidate Volumes: Vvol_nfs_pb2, Vvol_nfs_pb1 Performance: Greatest IOPS Size: 4GB Space Guaranteed: false Volumes with insufficient unpromised IOPS: Vvol_nfs_pb1, Vvol_nfs_pb2 Result: success (errno=13001)`, você deve tomar medidas corretivas, como o aumento de IOPS no armazenamento com a ajuda do administrador de armazenamento.
+** Você deve executar operações de provisionamento somente quando não houver nenhuma operação de descoberta em execução em segundo plano. Se os erros relatados nos arquivos de log do provedor VASA não são específicos, então você deve acompanhar o suporte técnico para resolver o problema.
+
+
+. Se nenhum erro específico for relatado nos arquivos de log do provedor VASA, examine o `sps.log` arquivo de log para verificar se o problema está com o VMware e, em seguida, tome medidas corretivas adequadas com base nos erros relatados.
++
+Se os erros relatados no `sps.log` arquivo de log não forem específicos, você deverá acompanhar um administrador da VMware para resolver o problema.
+
+

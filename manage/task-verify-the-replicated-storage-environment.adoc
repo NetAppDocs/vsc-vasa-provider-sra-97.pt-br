@@ -1,0 +1,30 @@
+---
+permalink: manage/task-verify-the-replicated-storage-environment.html 
+sidebar: sidebar 
+keywords: verifying, replicated, storage, systems, 
+summary: 'Você deve verificar se o site protegido e o site de recuperação foram emparelhados com êxito após a configuração do adaptador de replicação de armazenamento (SRA). O sistema de storage replicado deve ser detetável pelo local protegido e pelo local de recuperação.' 
+---
+= Verificar sistemas de storage replicados
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você deve verificar se o site protegido e o site de recuperação foram emparelhados com êxito após a configuração do adaptador de replicação de armazenamento (SRA). O sistema de storage replicado deve ser detetável pelo local protegido e pelo local de recuperação.
+
+.Antes de começar
+* Você deve ter configurado seu sistema de storage.
+* Você deve ter emparelhado o local protegido e o local de recuperação usando o gerenciador de array SRM.
+* Você deve ter habilitado a licença FlexClone e a licença SnapMirror antes de executar a operação de failover de teste e a operação de failover para SRA.
+
+
+.Passos
+. Faça login no vCenter Server.
+. Navegue para o menu:Site Recovery[Array Based Replication].
+. Selecione o SVM necessário e, em seguida, verifique os detalhes correspondentes nos *pares de matrizes*.
++
+Os sistemas de armazenamento devem ser descobertos no local protegido e no local de recuperação com o Status como ""habilitado"".
+
+

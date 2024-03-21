@@ -1,0 +1,68 @@
+---
+permalink: manage/task-monitor-vvols-datastores-and-virtual-machines-using-vvols-dashboard.html 
+sidebar: sidebar 
+keywords: monitoring, vvols, datastores, virtual, machines, using, the, vVol, dashboard, 
+summary: 'Você pode monitorar o desempenho e visualizar os cinco principais datastores SAN VMware Virtual volumes (vVols) no vCenter Server com base nos parâmetros que você selecionar usando o painel vVol do dispositivo virtual para Virtual Storage Console (VSC), Fornecedor VASA e adaptador de replicação de storage (SRA).' 
+---
+= Monitore armazenamentos de dados e máquinas virtuais da vVols usando o painel da vVol
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode monitorar o desempenho e visualizar os cinco principais datastores SAN VMware Virtual volumes (vVols) no vCenter Server com base nos parâmetros que você selecionar usando o painel vVol do dispositivo virtual para Virtual Storage Console (VSC), Fornecedor VASA e adaptador de replicação de storage (SRA).
+
+.Antes de começar
+* Você deve ter habilitado o OnCommand API Services 2,1 ou posterior se estiver usando o ONTAP 9.6 ou anterior.
++
+Você não precisa Registrar os Serviços de API OnCommand com o Fornecedor VASA para obter os detalhes do armazenamento de dados SAN vVols ou do relatório do armazenamento de dados SAN vVols VM para o ONTAP 9.7.
+
++
+https://mysupport.netapp.com/site/["Suporte à NetApp"^]
+
+* Você deve usar o ONTAP 9.3 ou posterior para seu sistema de storage.
+
+
+link:reference-verify-vvol-dashboard-data-requirements.html["Requisitos de dados do painel da VVol"]
+
+.Sobre esta tarefa
+Os dados de IOPS fornecidos pelo ONTAP são arredondados e exibidos no painel da evolução. Pode haver uma diferença entre o valor real de IOPS fornecido pelo ONTAP e o valor de IOPS exibido no painel da vVol.
+
+[NOTE]
+====
+* Se você estiver registrando os Serviços de API da OnCommand pela primeira vez, poderá visualizar todos os dados de métricas de desempenho para datastores SAN vVols no painel da vVol somente após 15 a 30 minutos.
+* Os dados do painel da VVol são atualizados periodicamente, com um intervalo de 10 minutos.
+* Se você adicionou, modificou ou excluiu um sistema de armazenamento de sua instância do vCenter Server, talvez você não perceba nenhuma alteração nos dados no painel do vVols por algum tempo.
++
+Isso ocorre porque os Serviços de API do OnCommand levam tempo para obter métricas atualizadas do ONTAP.
+
+* O valor total de IOPS exibido no portlet *Overview* do painel da evolução não é um valor cumulativo do valor de leitura de IOPS e valor de gravação de IOPS.
++
+IOPS de leitura, IOPS de gravação e IOPS totais são métricas separadas fornecidas pelos Serviços de API da OnCommand. Se houver uma diferença entre o valor total de IOPS e o valor acumulado de IOPS (valor de leitura de IOPS e valor de gravação de IOPS) fornecido pelos Serviços de API da OnCommand, a mesma diferença será observada nos valores de IOPS no painel da vVol.
+
+
+
+====
+.Passos
+. Na página inicial do vSphere Client, clique em *Virtual Storage Console*.
+. Selecione o vCenter Server necessário usando o menu suspenso *vCenter Server* para exibir os datastores.
+. Clique em *Painel da evolução*.
++
+O portlet *datastores* fornece os seguintes detalhes:
+
++
+** O número de armazenamentos de dados vVols gerenciados pelo provedor VASA em sua instância do vCenter Server
+** Os cinco principais armazenamentos de dados vVols com base nos parâmetros de desempenho e uso dos recursos, você pode alterar a listagem dos armazenamentos de dados com base no espaço utilizado, IOPS ou latência e na ordem necessária.
+
+
+. Veja os detalhes das máquinas virtuais usando o portlet *Virtual Machines*.
++
+O portlet *Virtual Machines* fornece os seguintes detalhes:
+
++
+** Número de máquinas virtuais que usam datastores ONTAP no vCenter Server
+** As cinco principais máquinas virtuais baseadas em IOPS, latência, taxa de transferência, capacidade comprometida, tempo de atividade e espaço lógico, você pode personalizar como as cinco principais máquinas virtuais são listadas no painel da VVol.
+
+
+

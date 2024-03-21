@@ -1,0 +1,39 @@
+---
+permalink: deploy/reference-error-during-fresh-deployment-of-virtual-appliance-for-vsc-vasa-provider-and-sra.html 
+sidebar: sidebar 
+keywords: error, during, fresh, deployment, virtual, appliance, vsc, vasa, provider, sra, 
+summary: Erro durante a nova implantação do dispositivo virtual para VSC, provedor VASA e SRA 
+---
+= Erro durante a nova implantação do dispositivo virtual para VSC, provedor VASA e SRA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+
+
+== Problema
+
+O log de erro "'vmware Tools OVF vCenter Configuration not found'" é exibido durante a nova implantação do dispositivo virtual para VSC, VASA Provider e SRA quando o endereço do vCenter ServerIPv4 inválido é usado.
+
+
+
+== Causa
+
+O dispositivo virtual para VSC, provedor VASA e SRA suporta endereços IPv4 e IPv6. Se o usuário fornecer um endereço IPv4 para o vCenter Server que não está disponível na rede e não houver nenhum endereço IPv6 fornecido, essas mensagens do registrador serão exibidas no console de manutenção.
+
+
+
+== Ação corretiva
+
+Você deve executar o seguinte para remover o erro:
+
+. Inicie sessão na consola de manutenção.
+. Aceder à caixa de diagnóstico.
+. Altere o usuário de "'diag'" para "'root'" usando ``sudo su``o comando.
+. Edite o arquivo de interface usando o editor vi `vi /etc/network/interface` .
+. Remover a entrada para "'inet6".
+. Salve o arquivo e reinicie o dispositivo virtual para VSC, VSA Provider e SRA.
+
+
+Depois de reiniciar o dispositivo virtual, não existem mensagens de erro observadas.

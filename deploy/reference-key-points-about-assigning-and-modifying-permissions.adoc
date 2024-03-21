@@ -1,0 +1,45 @@
+---
+permalink: deploy/reference-key-points-about-assigning-and-modifying-permissions.html 
+sidebar: sidebar 
+keywords: key, points, about, assigning, modifying, permissions, vcenter, server, 
+summary: Há vários pontos-chave a ter em mente quando você está trabalhando com permissões do vCenter Server. Se uma tarefa do Virtual Storage Console para VMware vSphere for bem-sucedida pode depender de onde você atribuiu uma permissão ou de quais ações um usuário realizou após a modificação de uma permissão. 
+---
+= Principais pontos sobre a atribuição e modificação de permissões para o vCenter Server
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Há vários pontos-chave a ter em mente quando você está trabalhando com permissões do vCenter Server. Se uma tarefa do Virtual Storage Console para VMware vSphere for bem-sucedida pode depender de onde você atribuiu uma permissão ou de quais ações um usuário realizou após a modificação de uma permissão.
+
+
+
+== Atribuindo permissões
+
+Você só precisa configurar permissões do vCenter Server se quiser limitar o acesso a objetos e tarefas do vSphere. Caso contrário, você pode fazer login como administrador. Esse login permite que você acesse automaticamente todos os objetos do vSphere.
+
+Quando você atribui uma permissão determina as tarefas do VSC que um usuário pode executar.
+
+Às vezes, para garantir a conclusão de uma tarefa, você deve atribuir a permissão em um nível mais alto, como o objeto raiz. Esse é o caso quando uma tarefa requer um privilégio que não se aplica a um objeto vSphere específico (por exemplo, rastrear a tarefa) ou quando um privilégio necessário se aplica a um objeto que não seja vSphere (por exemplo, um sistema de armazenamento).
+
+Nesses casos, você pode configurar uma permissão para que ela seja herdada pelas entidades filhos. Você também pode atribuir outras permissões às entidades filho. A permissão atribuída a uma entidade filho sempre substitui a permissão herdada da entidade pai. Isso significa que você pode permissões para uma entidade filho como uma forma de restringir o escopo de uma permissão que foi atribuída a um objeto raiz e herdada pela entidade filho.
+
+
+TIP: A menos que as diretivas de segurança da sua empresa exijam permissões mais restritivas, é uma boa prática atribuir permissões ao objeto raiz (também conhecido como pasta raiz).
+
+
+
+== Permissões e objetos que não sejam do vSphere
+
+A permissão que você cria é aplicada a um objeto que não seja vSphere. Por exemplo, um sistema de armazenamento não é um objeto vSphere. Se um privilégio se aplicar a um sistema de armazenamento, você deve atribuir a permissão que contém esse privilégio ao objeto raiz do VSC porque não há nenhum objeto vSphere ao qual você possa atribuí-lo.
+
+Por exemplo, qualquer permissão que inclua um privilégio como o privilégio VSC "Adicionar/Modificar/Ignorar sistemas de armazenamento" deve ser atribuída no nível do objeto raiz.
+
+
+
+== Modificar permissões
+
+Você pode modificar uma permissão a qualquer momento.
+
+Se você alterar o Privileges dentro de uma permissão, o usuário associado a essa permissão deve fazer logout e fazer login novamente para ativar a permissão atualizada.

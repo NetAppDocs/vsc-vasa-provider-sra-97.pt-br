@@ -1,0 +1,24 @@
+---
+permalink: manage/concept-what-reports-do.html 
+sidebar: sidebar 
+keywords: what, reports, do, 
+summary: Os relatórios exibem informações detalhadas sobre armazenamentos de dados e máquinas virtuais, que permitem que você analise e identifique possíveis problemas com armazenamentos de dados e máquinas virtuais no vCenter Server. 
+---
+= O que os relatórios fazem
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Os relatórios exibem informações detalhadas sobre armazenamentos de dados e máquinas virtuais, que permitem que você analise e identifique possíveis problemas com armazenamentos de dados e máquinas virtuais no vCenter Server.
+
+Você pode exibir, classificar e exportar relatórios.
+
+O Virtual Storage Console (VSC) fornece os seguintes relatórios predefinidos:
+
+* Relatório do datastore
+* Relatório de Máquina Virtual
+* Relatório do armazenamento de dados VVol
+* Relatório da máquina virtual VVol
+

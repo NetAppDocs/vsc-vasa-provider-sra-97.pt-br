@@ -1,0 +1,78 @@
+---
+permalink: manage/concept-datastore-reports.html 
+sidebar: sidebar 
+keywords: datastore, reports, 
+summary: Os relatórios do datastore fornecem informações detalhadas sobre os datastores tradicionais e as máquinas virtuais criadas nesses datastores. 
+---
+= Relatórios do datastore
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Os relatórios do datastore fornecem informações detalhadas sobre os datastores tradicionais e as máquinas virtuais criadas nesses datastores.
+
+O dashboard tradicional permite que você analise e identifique possíveis problemas com os datastores e as máquinas virtuais no vCenter Server. Você pode exibir, classificar e exportar relatórios. Os dados do relatório de datastores tradicionais e máquinas virtuais são fornecidos pelo vCenter Server.
+
+O datastore fornece os seguintes relatórios predefinidos:
+
+* Relatório do datastore
+* Relatório de Máquina Virtual
+
+
+
+
+== Relatório do datastore
+
+O menu Relatório de datastore fornece informações sobre os seguintes parâmetros para datastores:
+
+* Nome do datastore
+* Tipo de armazenamento de dados: NFS ou VMFS
+* Espaço livre
+* Espaço utilizado
+* Espaço total
+* Porcentagem de espaço utilizado
+* Percentagem de espaço disponível
+* IOPS
++
+O relatório exibe o IOPS do datastore.
+
+* Latência
++
+O relatório exibe as informações de latência do datastore.
+
+
+
+Você também pode verificar a hora em que o relatório foi gerado. O menu Relatório de armazenamento de dados permite organizar o relatório de acordo com sua exigência e, em seguida, exportar o relatório organizado usando o botão *Exportar para CSV*. Os nomes do datastore no relatório são links que navegam para a guia Monitor do datastore selecionado, onde você pode exibir as métricas de desempenho do datastore.
+
+
+
+== Relatório de Máquina Virtual
+
+O menu Relatório de Máquina Virtual fornece as seguintes métricas de desempenho para todas as máquinas virtuais que usam datastores provisionados pelo VSC para um vCenter Server selecionado:
+
+* Nome da máquina virtual
+* Capacidade comprometida
++
+O relatório exibe o valor da capacidade comprometida de uma máquina virtual.
+
+* Tempo de atividade
++
+O relatório exibe a hora em que a máquina virtual está ligada e está disponível em um host ESXi.
+
+* Latência
++
+O relatório exibe a latência das máquinas virtuais em todos os datastores associados às máquinas virtuais.
+
+* Estado de alimentação
++
+O relatório mostra se a máquina virtual está ligada ou desligada.
+
+* Host
++
+O relatório exibe os sistemas host nos quais a máquina virtual está disponível.
+
+
+
+Cada nome de máquina virtual no relatório é um link para a guia Monitor da máquina virtual selecionada. Você pode classificar o relatório de máquina virtual de acordo com sua exigência e exportar o relatório em um `.CSV` arquivo e salvar o relatório em seu sistema local. O carimbo de data/hora do relatório também é anexado ao relatório salvo.

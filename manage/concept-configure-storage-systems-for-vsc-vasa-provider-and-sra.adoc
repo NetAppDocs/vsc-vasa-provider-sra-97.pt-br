@@ -1,0 +1,14 @@
+---
+permalink: manage/concept-configure-storage-systems-for-vsc-vasa-provider-and-sra.html 
+sidebar: sidebar 
+keywords: configuring, storage, systems, for, vsc, vasa, provider, sra, 
+summary: Você deve adicionar sistemas de storage ao dispositivo virtual e definir credenciais padrão, se necessário, usando a interface VSC. 
+---
+= Configurar sistemas de armazenamento para VSC, Fornecedor VASA e SRA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você deve adicionar sistemas de storage ao dispositivo virtual e definir credenciais padrão, se necessário, usando a interface VSC.

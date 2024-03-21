@@ -1,0 +1,36 @@
+---
+permalink: deploy/task-enable-vasa-provider-for-configuring-virtual-datastores.html 
+sidebar: sidebar 
+keywords: enabling, vasa, provider, for, configuring, virtual, datastores, 
+summary: 'O dispositivo virtual para o Virtual Storage Console (VSC), o Fornecedor VASA e o adaptador de replicação de armazenamento (SRA) tem a capacidade do Fornecedor VASA ativada por predefinição. Você pode configurar armazenamentos de dados do VMware Virtual volumes (vVols) com os perfis de capacidade de storage necessários para cada datastore vVols.' 
+---
+= Habilite o provedor VASA para configurar datastores virtuais
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O dispositivo virtual para o Virtual Storage Console (VSC), o Fornecedor VASA e o adaptador de replicação de armazenamento (SRA) tem a capacidade do Fornecedor VASA ativada por predefinição. Você pode configurar armazenamentos de dados do VMware Virtual volumes (vVols) com os perfis de capacidade de storage necessários para cada datastore vVols.
+
+.Antes de começar
+* Você deve ter configurado a instância do vCenter Server e configurado o ESXi.
+* Você deve ter implantado o dispositivo virtual para VSC, provedor VASA e SRA.
+
+
+.Sobre esta tarefa
+Se o recurso Fornecedor VASA estiver desativado antes de atualizar para a versão 9.7.1 do dispositivo virtual para Virtual Storage Console (VSC), Fornecedor VASA e adaptador de replicação de armazenamento (SRA), o recurso Fornecedor VASA permanece desativado após a atualização. Esta versão permite habilitar o recurso de replicação do vVols para datastores vVols.
+
+.Passos
+. Faça login na interface de usuário da Web do VMware vSphere.
+. No vSphere Client, clique em menu:Menu[Virtual Storage Console].
+. Clique em *Configurações*.
+. Clique em *Gerenciar recursos* na guia *Configurações administrativas*.
+. Na caixa de diálogo *Manage Capabilities* (gerir capacidades), selecione a extensão VASA Provider (Fornecedor VASA) a ativar.
+. Se você quiser usar a capacidade de replicação para armazenamentos de dados vVols, use o botão de alternância *Enable vVols replication*.
+. Introduza o endereço IP do dispositivo virtual para VSC, Fornecedor VASA e SRA e a palavra-passe de administrador e, em seguida, clique em *aplicar*.
+
+
+.Depois de terminar
+Se você estiver usando o ONTAP 9.6 ou clusters anteriores, você deve se Registrar no provedor VASA para obter detalhes dos datastores vVols e das máquinas virtuais usadas nos relatórios de VM e armazenamento de dados SAN vVols. Mas se você estiver usando o ONTAP 9.7 ou posterior, então você não precisa se Registrar no provedor VASA.

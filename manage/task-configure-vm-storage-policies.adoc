@@ -1,0 +1,37 @@
+---
+permalink: manage/task-configure-vm-storage-policies.html 
+sidebar: sidebar 
+keywords: configuring, vm, storage, policies, 
+summary: Você deve configurar políticas de armazenamento de VM para gerenciar máquinas virtuais configuradas no armazenamento de dados vVols e para habilitar serviços como replicação para os discos virtuais. Para os armazenamentos de dados tradicionais, é opcional usar essas políticas de storage de VM. 
+---
+= Configurar políticas de armazenamento de VM
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você deve configurar políticas de armazenamento de VM para gerenciar máquinas virtuais configuradas no armazenamento de dados vVols e para habilitar serviços como replicação para os discos virtuais. Para os armazenamentos de dados tradicionais, é opcional usar essas políticas de storage de VM.
+
+.Sobre esta tarefa
+O cliente da Web vSphere fornece políticas de armazenamento padrão. Mas você pode criar políticas e atribuí-las às máquinas virtuais.
+
+.Passos
+. Na página vSphere Client, clique em menu:Menu[políticas e perfis].
+. Clique em menu:políticas de armazenamento de VM[Create VM Storage Policy].
+. Na página criar política de armazenamento de VM, forneça os seguintes detalhes:
++
+.. Insira um nome e uma descrição para a Política de armazenamento de VM.
+.. Selecione *Enable rules for "NetApp Clustered Data ONTAP.VP.vvol" storage*.
+.. Selecione o perfil de capacidade de armazenamento necessário na guia *colocação*.
+.. Selecione a opção *Custom* para ativar a replicação.
+.. Clique em *ADICIONAR REGRA* para selecionar *replicação assíncrona* e obrigatória *Programação SnapMirror* e, em seguida, clique em *SEGUINTE*.
+.. Verifique os datastores compatíveis listados e clique em *NEXT* na guia *Storage compatibility*.
++
+Para armazenamentos de dados vVols com volumes FlexVol de proteção de dados, a verificação de armazenamentos de dados compatíveis não é realizada.
+
+
+
+. Revise a seleção da Política de armazenamento de VM na guia *Review and Finish* e clique em *Finish*.
+

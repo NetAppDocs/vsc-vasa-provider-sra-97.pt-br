@@ -1,0 +1,41 @@
+---
+permalink: manage/task-configure-alarm-thresholds.html 
+sidebar: sidebar 
+keywords: configuring, alarm, thresholds, 
+summary: Você pode usar o VSC para definir alarmes para notificá-lo quando os limites de volume e os limites agregados atingem os limites definidos. 
+---
+= Configurar limites de alarme
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode usar o VSC para definir alarmes para notificá-lo quando os limites de volume e os limites agregados atingem os limites definidos.
+
+.Passos
+. Na página Virtual Storage Console *Home*, clique em *Configurações*.
+. Clique em *Unified Appliance Settings*.
+. Especifique os valores percentuais para o campo *limite quase total (%)* e o campo *limite total (%)* para os limiares de alarme de volume e os limiares de alarme agregados.
++
+Ao definir os valores, você deve manter as seguintes informações em mente:
+
++
+** Clicar em *Reset* redefine os limites para os valores anteriores.
++
+Clicar em *Reset* não redefine os limites para os valores padrão de 80% para "quase cheio" e 90% para "cheio".
+
+** Existem duas formas de definir os valores:
++
+*** Você pode usar as setas para cima e para baixo ao lado dos valores para ajustar os valores de limite.
+*** Pode deslizar as setas na barra de trajeto abaixo dos valores para ajustar os valores de limiar.
+
+
+** O valor mais baixo que você pode definir para o campo *limite total (%)* para volumes e agregados é de 6%.
+
+
+. Depois de especificar os valores necessários, clique em *Apply*.
++
+Você deve clicar em *Apply* para alarme de volume e alarme agregado.
+
+
