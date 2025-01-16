@@ -248,8 +248,7 @@ Você pode consultar o Virtual Storage Console, o VASA Provider e o Storage Repl
 
 == Onde encontrar informações adicionais
 
-* https://www.netapp.com/support-and-training/documentation/ontap-tools-for-vmware-vsphere-documentation/?&access=a["Console de armazenamento virtual, provedor VASA e adaptador de replicação de armazenamento para recursos do VMware vSphere"^]
-* https://docs.netapp.com/vapp-97/index.jsp["Console de armazenamento virtual, provedor VASA e adaptador de replicação de armazenamento para documentação do VMware vSphere"^]
+* https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/index.html["Ferramentas do ONTAP para documentação do VMware vSphere"^]
 * https://docs.vmware.com/en/Site-Recovery-Manager/8.2/com.vmware.srm.install_config.doc/GUID-B3A49FFF-E3B9-45E3-AD35-093D896596A0.html["VMware Site Recovery Manager 8,2"^]
 * https://docs.netapp.com/us-en/ontap/["Documentação do ONTAP 9"^]
 

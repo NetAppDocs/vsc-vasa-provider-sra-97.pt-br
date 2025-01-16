@@ -1827,10 +1827,6 @@
   <block id="259cedcdf843966e8740b7f0e51fafd8" category="list-text">Introduza o endereço IP do dispositivo virtual e para VSC, Fornecedor VASA e SRA e a palavra-passe de administrador e, em seguida, clique em *aplicar*.</block>
   <block id="1adf4c1e290e6f5445df86eb0104591c" category="paragraph">Você pode consultar o Virtual Storage Console, o VASA Provider e o Storage Replication Adapter for VMware vSphere Deployment and Setup Guide para obter detalhes sobre configuração adicional, adição de sistemas de armazenamento e configuração de controle de acesso baseado em funções para seus objetos vSphere.</block>
   <block id="4bb047f8c530785002e490ef17fa725e" category="section-title">Onde encontrar informações adicionais</block>
-  <block id="3ea4ab2f5fab2dacf4a221214853828b" category="inline-link">Console de armazenamento virtual, provedor VASA e adaptador de replicação de armazenamento para recursos do VMware vSphere</block>
-  <block id="23e9ed7607a8e89bc902626acfaa452f" category="list-text"><block ref="264082a1a46fa242ffc28ead5ece2e0e" category="inline-link-rx"></block></block>
-  <block id="f2393044488cad2cb09b4d9cf5da8ad8" category="inline-link">Console de armazenamento virtual, provedor VASA e adaptador de replicação de armazenamento para documentação do VMware vSphere</block>
-  <block id="ca5bc9879bd121851e787f01340dace0" category="list-text"><block ref="ca5bc9879bd121851e787f01340dace0" category="inline-link-rx"></block></block>
   <block id="00052dec7afcab84145fb95e7525c5f5" category="inline-link">VMware Site Recovery Manager 8,2</block>
   <block id="7e6bb57f09cc81cf29e541b0a3598654" category="list-text"><block ref="7e6bb57f09cc81cf29e541b0a3598654" category="inline-link-rx"></block></block>
   <block id="5358757de9216cc29d688612a3d72fe1" category="inline-link">Documentação do ONTAP 9</block>
@@ -1860,4 +1856,6 @@
   <block id="252487cd0b2a2e5781422a4764d47e57" category="sidebar">Armazenamento de Remov de um datastore vVols</block>
   <block id="ddf0ffd29c8b5fdb28671568df171be4" category="sidebar">A provisão do armazenamento de dados VVol falha com um grande número de volumes</block>
   <block id="dec3e9da01f86a71bed912a019fad778" category="sidebar">O status do VASA Provider é exibido como "Offline" na GUI do vCenter Server</block>
+  <block id="26ffc687a7267f96a389530199971cd1" category="inline-link">Ferramentas do ONTAP para documentação do VMware vSphere</block>
+  <block id="eddf7820ea4e2a78603e1bff3aa3bbb6" category="list-text"><block ref="eddf7820ea4e2a78603e1bff3aa3bbb6" category="inline-link-rx"></block></block>
 </blocks>
